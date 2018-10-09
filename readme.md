@@ -7,8 +7,7 @@
 - Django 2.1
 - Mysqlclient (para Windows)
 
-> [Tutorial para instalar mysqlclient](https://www.pythoniza.me/instalando-mysqlclient-en-windows/)
-> [Página para descargar mysqlclient](https://www.lfd.uci.edu/~gohlke/pythonlibs/#mysqlclient)
+> [Tutorial para instalar mysqlclient](https://www.pythoniza.me/instalando-mysqlclient-en-windows/) | [Página para descargar mysqlclient](https://www.lfd.uci.edu/~gohlke/pythonlibs/#mysqlclient)
 
 
 ## Base de datos
@@ -31,14 +30,14 @@ manage.py makemigrations
 manage.py migrate
 ```
 
-5. Correr el servidor.
-
-```bash
-manage.py runserver
-```
-
-6. Crear super usuario.
+5. Crear super usuario.
 
 ```bash
 django-admin.py createsuperuser
+```
+
+6. Correr el servidor.
+
+```bash
+manage.py runserver
 ```
