@@ -36,3 +36,9 @@ manage.py migrate
 ```bash
 manage.py runserver
 ```
+
+6. Crear super usuario.
+
+```bash
+django-admin.py createsuperuser
+```
