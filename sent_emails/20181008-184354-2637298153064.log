@@ -1,0 +1,26 @@
+Content-Type: text/plain; charset="utf-8"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
+Subject: 
+ =?utf-8?q?Restablecimiento_de_la_contrase=C3=B1a_en_localhost=3A8000_?=
+From: webmaster@localhost
+To: soywaco@gmail.com
+Date: Tue, 09 Oct 2018 00:43:54 -0000
+Message-ID: <153904583446.9872.7522593760999708705@DESKTOP-GMAO0HD>
+
+
+Usted está recibiendo este correo electrónico porque ha solicitado un restablecimiento de contraseña para la cuenta de usuario en localhost:8000.
+
+Por favor visite la página que se muestra a continuación y elija una nueva contraseña:
+
+http://localhost:8000/accounts/reset/MQ/509-80186d43d46376a0ff57/
+
+Su nombre de usuario, en caso de haberlo olvidado: admin
+
+¡Gracias por usar nuestro sitio!
+
+El equipo de localhost:8000
+
+
+
+-------------------------------------------------------------------------------
