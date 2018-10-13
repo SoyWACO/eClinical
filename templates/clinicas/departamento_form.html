@@ -1,0 +1,43 @@
+{% extends 'base/general.html' %}
+
+{% block title %}Departamentos{% endblock %}
+
+{% block header %}Registro{% endblock %}
+
+{% block breadcrumb %}
+<ol class="breadcrumb">
+  <li><i class="fa fa-plus-circle"></i> &nbsp; Clínicas</li>
+  <li><a href="{% url 'clinicas:departamento_list' %}">Gestión de Departamentos</a></li>
+  <li class="active">Registro</li>
+</ol>
+{% endblock %}
+
+{% block content %}
+<div class="row">
+  <div class="col-xs-12">
+    <!-- Box Primary -->
+    <div class="box box-primary">
+      <div class="box-header">
+        <h3 class="box-title">Departamentos</h3>
+      </div>
+      <!-- /.box-header -->
+      <div class="box-body">
+        <div class="row">
+          <div class="col-sm-8 col-sm-offset-2">
+            <form method="post" autocomplete="off">
+              {% csrf_token %}
+              {{ form.as_p }}
+              <div class="pull-right">
+              	<a href="{% url 'clinicas:departamento_list' %}" class="btn btn-flat btn-default">Cancelar</a> &nbsp;&nbsp;
+                <button type="submit" class="btn btn-flat btn-primary">Guardar</button>	
+              </div>
+            </form>	
+          </div>
+        </div>
+      </div>
+      <!-- /.box-body -->
+    </div>
+    <!-- /.box -->
+  </div>
+</div>
+{% endblock %}
