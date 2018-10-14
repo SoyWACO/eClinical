@@ -14,6 +14,13 @@ class DepartamentoForm(forms.ModelForm):
 			'nombre':'Nombre',
 			'descripcion':'Descripción',
 		}
+		help_texts = {
+			'nombre':'Obligatorio. Longitud máxima 200 caracteres alfanuméricos.',
+			'descripcion':'Opcional. Breve explicación de la función que desempeña el departamento.',
+		}
+		error_messages = {
+			'nombre':{'max_length':('Longitud máxima 200 caracteres alfanuméricos.')},
+		}
 		widgets = {
 			'nombre':forms.TextInput(attrs={
 				'class':'form-control',

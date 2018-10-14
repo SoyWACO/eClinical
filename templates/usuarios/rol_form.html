@@ -1,0 +1,43 @@
+{% extends 'base/general.html' %}
+
+{% block title %}Roles de Usuario{% endblock %}
+
+{% block header %}Registro{% endblock %}
+
+{% block breadcrumb %}
+<ol class="breadcrumb">
+  <li><i class="fa fa-user-md"></i> &nbsp; Usuarios</li>
+  <li><a href="{% url 'usuarios:rol_list' %}">Gestión de Roles de Usuario</a></li>
+  <li class="active">Registro</li>
+</ol>
+{% endblock %}
+
+{% block content %}
+<div class="row">
+  <div class="col-xs-12">
+    <!-- Box Primary -->
+    <div class="box box-primary">
+      <div class="box-header">
+        <h3 class="box-title">Roles de Usuario</h3>
+      </div>
+      <!-- /.box-header -->
+      <div class="box-body">
+        <div class="row">
+          <div class="col-sm-8 col-sm-offset-2">
+            <form method="post" autocomplete="off">
+              {% csrf_token %}
+              {{ form.as_p }}
+              <div class="pull-right">
+              	<a href="{% url 'usuarios:rol_list' %}" class="btn btn-flat btn-default">Cancelar</a> &nbsp;&nbsp;
+                <button type="submit" class="btn btn-flat btn-primary">Guardar</button>	
+              </div>
+            </form>	
+          </div>
+        </div>
+      </div>
+      <!-- /.box-body -->
+    </div>
+    <!-- /.box -->
+  </div>
+</div>
+{% endblock %}

@@ -22,4 +22,5 @@ urlpatterns = [
     path('accounts/', include('django.contrib.auth.urls')),
     path('', TemplateView.as_view(template_name='home.html'), name='home'),
     path('clinicas/', include('apps.clinicas.urls', namespace='clinicas')),
+    path('usuarios/', include('apps.usuarios.urls', namespace='usuarios')),
 ]

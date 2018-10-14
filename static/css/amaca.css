@@ -2,3 +2,8 @@
   display:inline-block;
   transform: rotate(180deg);
 }
+
+.helptext {
+	font-size: 12px;
+	color: #a4a4a4;
+}
