@@ -31,7 +31,7 @@ class GroupForm(forms.ModelForm):
 			'permissions',
 		]
 		labels = {
-			'name':'Rol de Usuario',
+			'name':'Rol de usuario',
 			'permissions':'Permisos',
 		}
 		help_texts = {
@@ -44,7 +44,7 @@ class GroupForm(forms.ModelForm):
 		widgets = {
 			'name':forms.TextInput(attrs={
 				'class':'form-control',
-				'placeholder':'Nombre del Rol de Usuario',
+				'placeholder':'Nombre del rol de usuario',
 				}),
 			'permissions':forms.CheckboxSelectMultiple(),
 		}

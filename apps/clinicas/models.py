@@ -1,5 +1,5 @@
 from django.db import models
-from apps.pais.models import Departamento, Municipio
+from apps.pais.models import Departamento as Dep, Municipio
 
 # Create your models here.
 
@@ -12,8 +12,9 @@ class Departamento(models.Model):
 
 class Clinica(models.Model):
 	nombre = models.CharField(max_length=200)
-	telefono = models.CharField(max_length=8)
-	email = models.EmailField()
-	departamento = models.ForeignKey(Departamento, null=True, blank=True, on_delete=models.CASCADE)
-	municipio = models.ForeignKey(Municipio, null=True, blank=True, on_delete=models.CASCADE)
-	direccion = models.CharField(max_length=400)
+	telefono = models.CharField(max_length=8, null=True, blank=True)
+	email = models.EmailField(null=True, blank=True)
+	departamento = models.ForeignKey(Dep, null=True, blank=True, on_delete=models.SET_NULL)
+	municipio = models.ForeignKey(Municipio, null=True, blank=True, on_delete=models.SET_NULL)
+	direccion = models.CharField(max_length=400, null=True, blank=True)
+	departamentos = models.ManyToManyField(Departamento, blank=True)
