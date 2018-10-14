@@ -20,6 +20,15 @@
 {% block content %}
 <div class="row">
   <div class="col-xs-12">
+    {% if messages %}
+    {% for message in messages %}
+    <p class="alert alert-dismissable {% if message.tags %}alert-{{ message.tags }}"{% endif %}>
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <i class="fa fa-check-circle"></i> &nbsp;&nbsp; {{ message }}
+    </p>
+    {% endfor %}
+    {% endif %}
+
     <!-- Box Primary -->
     <div class="box box-primary">
       <div class="box-header">
@@ -30,7 +39,7 @@
       </div>
       <!-- /.box-header -->
       <div class="box-body">
-        <table id="tabla" class="table table-bordered table-hover table-striped">
+        <table id="tabla" class="table table-bordered table-striped">
           <thead>
             <tr>
               <th>Nombre</th>

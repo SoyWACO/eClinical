@@ -27,7 +27,7 @@
             <form method="post" autocomplete="off">
               {% csrf_token %}
               <h3>¿Desea eliminar el departamento?</h3>
-              <p>¿Realmente desea eliminar el departamento {{ object.nombre }}?</p>
+              <p>¿Realmente desea eliminar el departamento de {{ object.nombre }}?</p>
               <br>
               <button type="submit" class="btn btn-flat btn-danger">Sí, deseo eliminar</button> &nbsp;&nbsp;
               <a href="{% url 'clinicas:departamento_list' %}" class="btn btn-flat btn-default">No, volver atrás</a>

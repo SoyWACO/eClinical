@@ -8,8 +8,8 @@ $(function() {
       "paginate": {
         "first": "Primero",
         "last": "Último",
-        "next": "Siguiente",
-        "previous": "Anterior",
+        "next": "<i class='fa fa-chevron-right'></i>",
+        "previous": "<i class='fa fa-chevron-left'></i>",
       },
       "emptyTable": "No hay datos disponibles en la tabla",
       "info": "Mostrando página _PAGE_ de _PAGES_",
