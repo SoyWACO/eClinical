@@ -10,6 +10,8 @@ class UsuarioCreationForm(UserCreationForm):
 		model = Usuario
 		fields = [
 			'username',
+			'first_name',
+			'last_name',
 			'email',
 		]
 
@@ -19,6 +21,8 @@ class UsuarioChangeForm(UserChangeForm):
 		model = Usuario
 		fields = [
 			'username',
+			'first_name',
+			'last_name',
 			'email',
 		]
 

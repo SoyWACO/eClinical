@@ -1,13 +1,13 @@
 {% extends 'base/general.html' %}
 
-{% block title %}Roles de Usuario{% endblock %}
+{% block title %}Usuarios{% endblock %}
 
 {% block header %}Eliminar{% endblock %}
 
 {% block breadcrumb %}
 <ol class="breadcrumb">
   <li><i class="fa fa-user-md"></i> &nbsp; Usuarios</li>
-  <li><a href="{% url 'usuarios:rol_list' %}">Gestión de Roles de Usuario</a></li>
+  <li><a href="{% url 'usuarios:usuario_list' %}">Gestión de Usuarios</a></li>
   <li class="active">Eliminar</li>
 </ol>
 {% endblock %}
@@ -18,7 +18,7 @@
     <!-- Box Primary -->
     <div class="box box-primary">
       <div class="box-header">
-        <h3 class="box-title">Roles de Usuario</h3>
+        <h3 class="box-title">Usuarios</h3>
       </div>
       <!-- /.box-header -->
       <div class="box-body">
@@ -26,11 +26,11 @@
           <div class="col-sm-8 col-sm-offset-2">
             <form method="post" autocomplete="off">
               {% csrf_token %}
-              <h3>¿Desea eliminar el rol de usuario?</h3>
-              <p>¿Realmente desea eliminar el rol de usuario {{ object.name }}?</p>
+              <h3>¿Desea eliminar el usuario?</h3>
+              <p>¿Realmente desea eliminar el usuario {{ object.first_name }} {{ object.last_name }}?</p>
               <br>
               <button type="submit" class="btn btn-flat btn-danger">Sí, deseo eliminar</button> &nbsp;&nbsp;
-              <a href="{% url 'usuarios:rol_list' %}" class="btn btn-flat btn-default">No, volver atrás</a>
+              <a href="{% url 'usuarios:usuario_list' %}" class="btn btn-flat btn-default">No, volver atrás</a>
             </form>	
           </div>
         </div>

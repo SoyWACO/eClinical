@@ -18,3 +18,6 @@ class Clinica(models.Model):
 	municipio = models.ForeignKey(Municipio, null=True, blank=True, on_delete=models.SET_NULL)
 	direccion = models.CharField(max_length=400, null=True, blank=True)
 	departamentos = models.ManyToManyField(Departamento, blank=True)
+
+	def __str__(self):
+		return '{}'.format(self.nombre)
