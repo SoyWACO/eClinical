@@ -1,6 +1,11 @@
 {% load staticfiles %}
+
+
+{% if user.is_authenticated %}
+
+
 <!DOCTYPE html>
-<html>
+<html lang="es">
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -38,7 +43,6 @@
 <!-- ADD THE CLASS fixed TO GET A FIXED HEADER AND SIDEBAR LAYOUT -->
 <!-- the fixed layout is not compatible with sidebar-mini -->
 <body class="hold-transition skin-blue fixed sidebar-mini">
-{% if user.is_authenticated %}
 <!-- Site wrapper -->
 <div class="wrapper">
 
@@ -108,7 +112,7 @@
           <a href=""><i class="fa fa-circle text-success"></i> Online</a>
         </div>
       </div>
-      <!-- search form -->
+      <!-- search form
       <form action="#" method="get" class="sidebar-form">
         <div class="input-group">
           <input type="text" name="q" class="form-control" placeholder="Buscar...">
@@ -118,6 +122,7 @@
               </span>
         </div>
       </form>
+      -->
       <!-- /.search form -->
       <!-- sidebar menu: : style can be found in sidebar.less -->
       <ul class="sidebar-menu" data-widget="tree">
@@ -179,7 +184,7 @@
     <div class="pull-right hidden-xs">
       <img src="{% static 'img/sistema/logo_amaca.png' %}" style="width: 80px;">
     </div>
-    <strong>Copyleft <span class="copyleft">&copy;</span> 2018 &nbsp;&#8226;&nbsp; <a href="">eClinical</a>
+    <strong>Copyleft <span class="copyleft">&copy;</span> 2018 &nbsp;&#8226;&nbsp; <a href="#">eClinical</a></strong>
   </footer>
 
 </div>
@@ -200,10 +205,68 @@
 <!-- Scripts extras -->
 {% block scripts %}
 {% endblock %}
-
-{% else %}
-<p>You are not logged in</p>
-<a href="{% url 'login' %}">login</a>
-{% endif %}
 </body>
 </html>
+
+
+{% else %}
+
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <title>eClinica &#8226; Inicio</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.min.css' %}">
+  <link rel="stylesheet" type="text/css" href="{% static 'css/font-awesome.min.css' %}">
+  <link rel="stylesheet" type="text/css" href="{% static 'css/icon-font.min.css' %}">
+  <link rel="stylesheet" type="text/css" href="{% static 'css/animate.css' %}">
+  <link rel="stylesheet" type="text/css" href="{% static 'css/hamburgers.min.css' %}">
+  <link rel="stylesheet" type="text/css" href="{% static 'css/select2.min.css' %}">
+  <link rel="stylesheet" type="text/css" href="{% static 'css/util.css' %}">
+  <link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">
+  <!-- amaca style -->
+    <link rel="stylesheet" href="{% static 'css/amaca.css' %}">
+  <!-- Favicon -->
+    <link rel="favicon" href="{% static 'img/sistema/icon_medicina.png' %}" />
+    <link rel="shortcut icon" href="{% static 'img/sistema/icon_medicina.ico' %}" />
+</head>
+<body>
+  
+  <div class="limiter">
+    <div class="container-login100">
+      <div class="wrap-login100 p-t-20 p-b-20">
+        <form class="login100-form validate-form">
+          <div class="login100-form-avatar">
+            <img src="{% static 'img/sistema/icon_medicina.ico' %}" alt="logo">
+          </div>
+          <span class="login100-form-title p-t-20 p-b-30">
+            eClinical
+          </span>
+          <div class="text-center w-full p-b-10">
+            <h5 style="color: white">Sistema para Administrar Expedientes Clínicos</h5>
+          </div>
+
+          <div class="container-login100-form-btn p-t-10 p-b-180">
+            <a href="{% url 'login' %}" class="login100-form-btn">Identificarse</a>
+          </div>
+
+          <div class="text-center w-full" style="color: white;">
+            Copyleft <span class="copyleft">&copy;</span> 2018 &nbsp;&#8226;&nbsp; eClinical
+          </div>
+        </form>
+        <div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <script src="{% static 'js/jquery.min.js' %}"></script>
+  <script src="{% static 'js/popper.js' %}"></script>
+  <script src="{% static 'js/bootstrap.min.js' %}"></script>
+  <script src="{% static 'js/select2.min.js' %}"></script>
+  <script src="{% static 'js/main.js' %}"></script>
+</body>
+</html>
+{% endif %}

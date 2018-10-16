@@ -1,15 +1,57 @@
-{% extends 'base/login.html' %}
+{% extends 'base/entrada.html' %}
+
+{% load staticfiles %}
 
 {% block title %}Inicio de sesión{% endblock %}
 
-{% block form %}
-<div>
-<form method="post">
-  {% csrf_token %}
-  {{ form.as_p }}
-  <div>
-    <button type="submit" class="btn btn-primary btn-block btn-flat">Acceder</button>
-  </div>
+{% block content %}
+<form class="login100-form validate-form" method="post">
+	{% csrf_token %}
+	<div class="login100-form-avatar">
+		<img src="{% static 'img/sistema/icon_medicina.ico' %}" alt="logo">
+	</div>
+	<span class="login100-form-title p-t-20 p-b-30">
+		eClinical
+	</span>
+	<!-- Errores -->
+	{% if form.errors %}
+	<div class="text-center w-full p-b-10" style="color: #df0024;">
+	  <strong>Credenciales incorrectas</strong>
+	</div>
+    {% endif %}
+	<!-- Nombre de usuario -->
+	<div class="wrap-input100 validate-input m-b-10" data-validate = "Nombre de usuario es requerido">
+		<input class="input100" type="text" name="username" placeholder="Nombre de usuario">
+		<span class="focus-input100"></span>
+		<span class="symbol-input100">
+			<i class="fa fa-user"></i>
+		</span>
+	</div>
+	<!-- Contraseña -->
+	<div class="wrap-input100 validate-input m-b-10" data-validate = "Contraseña es requerida">
+		<input class="input100" type="password" name="password" placeholder="Contraseña">
+		<span class="focus-input100"></span>
+		<span class="symbol-input100">
+			<i class="fa fa-lock"></i>
+		</span>
+	</div>
+
+	<div class="container-login100-form-btn p-t-10">
+		<button type="submit" class="login100-form-btn">
+			Acceder
+		</button>
+	</div>
+
+	<div class="text-center w-full p-t-20 p-b-70">
+		<a href="{% url 'password_reset' %}" class="txt1">
+			Olvidé mi contraseña
+		</a>
+	</div>
+
+	<div class="text-center w-full" style="color: white;">
+		Copyleft <span class="copyleft">&copy;</span> 2018 &nbsp;&#8226;&nbsp; eClinical
+	</div>
 </form>
+<div>
 </div>
 {% endblock %}
