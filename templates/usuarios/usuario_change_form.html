@@ -59,6 +59,14 @@
                 <input type="email" name="email" maxlength="254" required id="id_email" class="form-control" placeholder="Correo electrónico del usuario" value="{{ object.email }}">
                 <span class="helptext">Obligatorio. Longitud máxima 254 caracteres.</span>
               </p>
+              <!-- Roles de usuario -->
+              <p>
+                <label for="id_groups">Roles de usuario:</label>
+                <br>
+                {{ form.groups }}
+                <br>
+                <span class="helptext">Opcional. Mantenga presionado "Control, o "Command" en una Mac, para seleccionar más de uno.</span>
+              </p>
               <div class="pull-right">
               	<a href="{% url 'usuarios:usuario_list' %}" class="btn btn-flat btn-default">Cancelar</a> &nbsp;&nbsp;
                 <button type="submit" class="btn btn-flat btn-primary">Guardar</button>	

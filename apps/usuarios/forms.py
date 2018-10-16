@@ -13,6 +13,7 @@ class UsuarioCreationForm(UserCreationForm):
 			'first_name',
 			'last_name',
 			'email',
+			'groups',
 		]
 
 class UsuarioChangeForm(UserChangeForm):
@@ -24,6 +25,7 @@ class UsuarioChangeForm(UserChangeForm):
 			'first_name',
 			'last_name',
 			'email',
+			'groups',
 		]
 
 class GroupForm(forms.ModelForm):
