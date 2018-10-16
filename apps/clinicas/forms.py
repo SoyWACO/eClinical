@@ -71,6 +71,8 @@ class ClinicaForm(forms.ModelForm):
 			'telefono':forms.TextInput(attrs={
 				'class':'form-control',
 				'placeholder':'Teléfono de contacto de la clínica',
+				'data-inputmask':'"mask":"99999999"',
+				'data-mask':'',
 				}),
 			'email':forms.EmailInput(attrs={
 				'class':'form-control',

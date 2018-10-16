@@ -1,0 +1,26 @@
+Content-Type: text/plain; charset="utf-8"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
+Subject: 
+ =?utf-8?q?Restablecimiento_de_la_contrase=C3=B1a_en_localhost=3A8000_?=
+From: webmaster@localhost
+To: prueba@mail.com
+Date: Tue, 16 Oct 2018 02:17:26 -0000
+Message-ID: <153965624672.4864.15776566784047958222@DESKTOP-GMAO0HD>
+
+
+Usted está recibiendo este correo electrónico porque ha solicitado un restablecimiento de contraseña para la cuenta de usuario en localhost:8000.
+
+Por favor visite la página que se muestra a continuación y elija una nueva contraseña:
+
+http://localhost:8000/accounts/reset/Mg/50g-b0c6e8b779af5b76ff08/
+
+Su nombre de usuario, en caso de haberlo olvidado: prueba
+
+¡Gracias por usar nuestro sitio!
+
+El equipo de localhost:8000
+
+
+
+-------------------------------------------------------------------------------

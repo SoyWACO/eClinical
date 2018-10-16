@@ -1,5 +1,7 @@
 {% extends 'base/general.html' %}
 
+{% load staticfiles %}
+
 {% block title %}Clínicas{% endblock %}
 
 {% block header %}Registro{% endblock %}
@@ -49,4 +51,14 @@
     <!-- /.box -->
   </div>
 </div>
+{% endblock %}
+
+{% block scripts %}
+<!-- InputMask -->
+<script src="{% static 'js/jquery.inputmask.js' %}"></script>
+<script type="text/javascript">
+  $(function () {
+    $('[data-mask]').inputmask()
+  })
+</script>
 {% endblock %}
