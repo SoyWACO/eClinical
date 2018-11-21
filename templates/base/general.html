@@ -133,16 +133,20 @@
             <i class="fa fa-home"></i> <span>Inicio</span>
           </a>
         </li>
-        <li class="treeview">
-          <a href="">
-            <i class="fa fa-plus-circle"></i> <span>Expediente</span>
-            <span class="pull-right-container">
-              <i class="fa fa-angle-left pull-right"></i>
-            </span>
+        <li>
+          <a href="{% url 'home' %}">
+            <i class="fa fa-archive"></i> <span>Archivo</span>
           </a>
-          <ul class="treeview-menu">
-            <li><a href="{% url 'expediente:signo_vital_list' %}"><i class="fa fa-circle-o"></i> Signos Vitales</a></li>
-          </ul>
+        </li>
+        <li>
+          <a href="{% url 'home' %}">
+            <i class="fa fa-heartbeat"></i> <span>Enfermeria</span>
+          </a>
+        </li>
+        <li>
+          <a href="{% url 'home' %}">
+            <i class="fa fa-flask"></i> <span>Laboratorios</span>
+          </a>
         </li>
         <li class="treeview">
           <a href="">
