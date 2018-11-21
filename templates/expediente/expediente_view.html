@@ -1,0 +1,132 @@
+{% extends 'base/general.html' %}
+
+{% load staticfiles %}
+
+{% block title %}Expediente{% endblock %}
+
+{% block header %}Expediente Clínico{% endblock %}
+
+{% block breadcrumb %}
+<ol class="breadcrumb">
+  <li><a href="#"><i class="fa fa-archive"></i> &nbsp; Gestión de Expedientes</a></li>
+  <li class="active">Expediente Clínico</li>
+</ol>
+{% endblock %}
+
+{% block content %}
+<div class="row">
+  <div class="col-md-4">
+    <!-- Widget: user widget style 1 -->
+    <div class="box box-widget widget-user-2">
+      <!-- Add the bg color to the header using any of the bg-* classes -->
+      <div class="widget-user-header bg-blue">
+        <div class="widget-user-image">
+          <img class="img-circle" src="{% static 'img/sistema/icon_medicina.png' %}" alt="User Avatar">
+        </div>
+        <!-- /.widget-user-image -->
+        <h3 class="widget-user-username">Nombre Apellido</h3>
+      </div>
+      <div class="box-footer no-padding">
+        <ul class="nav nav-stacked">
+          <li><a href="#">Género <span class="pull-right">M</span></a></li>
+          <li><a href="#">Fecha de nacimiento <span class="pull-right">10/10/1990</span></a></li>
+          <li><a href="#">DUI <span class="pull-right">123456789-0</span></a></li>
+          <li><a href="#">Ocupación <span class="pull-right">Estudiante</span></a></li>
+          <li><a href="#" class="text-center">Editar</a></li>
+        </ul>
+      </div>
+    </div>
+    <!-- /.widget-user -->
+
+    <div class="box box-primary">
+      <div class="box-header with-border">
+        <h3 class="box-title">Signos Vitales</h3>
+
+        <div class="box-tools pull-right">
+          <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+          </button>
+        </div>
+        <!-- /.box-tools -->
+      </div>
+      <!-- /.box-header -->
+      <div class="box-footer no-padding">
+        <ul class="nav nav-stacked">
+          <li><a href="#">Altura <span class="pull-right">170 cm</span></a></li>
+          <li><a href="#">Peso <span class="pull-right">70 kg</span></a></li>
+          <li><a href="#">Temperatura <span class="pull-right">36 ºC</span></a></li>
+          <li><a href="#">Presión arterial <span class="pull-right">120/80 mmHg</span></a></li>
+          <li><a href="#">Pulso cardíaco <span class="pull-right">62 Fc</span></a></li>
+          <li><a href="#" class="text-center">Ver historial</a></li>
+        </ul>
+      </div>
+      <!-- /.box-footer -->
+    </div>
+    <!-- /.box -->
+  </div>
+  <div class="col-md-4">
+    <div class="box box-primary">
+      <div class="box-header with-border">
+        <h3 class="box-title">Examenes clínicos</h3>
+
+        <div class="box-tools pull-right">
+          <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+          </button>
+        </div>
+        <!-- /.box-tools -->
+      </div>
+      <!-- /.box-header -->
+      <div class="box-footer no-padding">
+        <ul class="nav nav-stacked">
+          <li><a href="#">Examen de orina <span class="pull-right">12/12/2018</span></a></li>
+          <li><a href="#" class="text-center">Ver todos</a></li>
+        </ul>
+      </div>
+      <!-- /.box-footer -->
+    </div>
+    <!-- /.box -->
+
+    <div class="box box-primary">
+      <div class="box-header with-border">
+        <h3 class="box-title">Examenes físicos</h3>
+
+        <div class="box-tools pull-right">
+          <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+          </button>
+        </div>
+        <!-- /.box-tools -->
+      </div>
+      <!-- /.box-header -->
+      <div class="box-footer no-padding">
+        <ul class="nav nav-stacked">
+          <li><a href="#">Radiografía <span class="pull-right">12/12/2018</span></a></li>
+          <li><a href="#" class="text-center">Ver todos</a></li>
+        </ul>
+      </div>
+      <!-- /.box-footer -->
+    </div>
+    <!-- /.box -->
+  </div>
+  <div class="col-md-4">
+    <div class="box box-primary">
+      <div class="box-header with-border">
+        <h3 class="box-title">Citas</h3>
+
+        <div class="box-tools pull-right">
+          <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+          </button>
+        </div>
+        <!-- /.box-tools -->
+      </div>
+      <!-- /.box-header -->
+      <div class="box-footer no-padding">
+        <ul class="nav nav-stacked">
+          <li><a href="#">Motivo de la cita <span class="pull-right">12/12/2018</span></a></li>
+          <li><a href="#" class="text-center">Ver todos</a></li>
+        </ul>
+      </div>
+      <!-- /.box-footer -->
+    </div>
+    <!-- /.box -->
+  </div>
+</div>
+{% endblock %}
