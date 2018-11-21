@@ -1,0 +1,79 @@
+{% extends 'base/general.html' %}
+{% load staticfiles %}
+
+{% block title %}Clínicas{% endblock %}
+
+{% block styles %}
+<!-- DataTables -->
+<link rel="stylesheet" href="{% static 'css/dataTables.bootstrap.min.css' %}">
+{% endblock %}
+
+{% block header %}Gestión de Clínicas{% endblock %}
+
+{% block breadcrumb %}
+<ol class="breadcrumb">
+  <li><i class="fa fa-plus-circle"></i> &nbsp; Clínicas</li>
+  <li class="active">Gestión de Clínicas</li>
+</ol>
+{% endblock %}
+
+{% block content %}
+<div class="row">
+  <div class="col-xs-12">
+    {% if messages %}
+    {% for message in messages %}
+    <p class="alert alert-dismissable {% if message.tags %}alert-{{ message.tags }}"{% endif %}>
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <i class="fa fa-check-circle"></i> &nbsp;&nbsp; {{ message }}
+    </p>
+    {% endfor %}
+    {% endif %}
+
+    <!-- Box Primary -->
+    <div class="box box-primary">
+      <div class="box-header">
+        <div class="pull-right">
+          <a href="{% url 'expediente:signo_vital_create' %}" class="btn btn-flat btn-primary"><i class="fa fa-plus"></i> &nbsp; Agregar Signo Vital</a>
+        </div>
+        <h3 class="box-title">Clínicas</h3>
+      </div>
+      <!-- /.box-header -->
+      <div class="box-body">
+        <table id="tabla" class="table table-bordered table-striped">
+          <thead>
+            <tr>
+              <th>Temperatura</th>
+              <th>Opciones</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for signo_vital in object_list %}
+            <tr>
+              <td>{{ signo_vital.temperatura }}</td>
+              <td style="width: 200px;">
+                <a href="{% url 'expediente:signo_vital_update' signo_vital.id %}">
+                  <i class="fa fa-pencil" style="color: #ffbc07;"></i>&nbsp; Editar
+                </a>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <a href="{% url 'expediente:signo_vital_delete' signo_vital.id %}">
+                  <i class="fa fa-trash" style="color: #df0024;"></i>&nbsp; Eliminar
+                </a>
+              </td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+      <!-- /.box-body -->
+    </div>
+    <!-- /.box -->
+  </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<!-- DataTables -->
+<script src="{% static 'js/jquery.dataTables.js' %}"></script>
+<script src="{% static 'js/dataTables.bootstrap.min.js' %}"></script>
+<script src="{% static 'js/tabla.js' %}"></script>
+{% endblock %}
