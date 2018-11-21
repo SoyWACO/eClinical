@@ -8,12 +8,12 @@
 <link rel="stylesheet" href="{% static 'css/dataTables.bootstrap.min.css' %}">
 {% endblock %}
 
-{% block header %}Gestión de Clínicas{% endblock %}
+{% block header %}Gestión de Expediente{% endblock %}
 
 {% block breadcrumb %}
 <ol class="breadcrumb">
-  <li><i class="fa fa-plus-circle"></i> &nbsp; Clínicas</li>
-  <li class="active">Gestión de Clínicas</li>
+  <li><i class="fa fa-plus-circle"></i> &nbsp; Expediente</li>
+  <li class="active">Gestión de Expediente</li>
 </ol>
 {% endblock %}
 
@@ -33,34 +33,40 @@
     <div class="box box-primary">
       <div class="box-header">
         <div class="pull-right">
-          <a href="{% url 'expediente:signo_vital_create' %}" class="btn btn-flat btn-primary"><i class="fa fa-plus"></i> &nbsp; Agregar Signo Vital</a>
+          <a href="{% url 'expediente:expediente_create' %}" class="btn btn-flat btn-primary"><i class="fa fa-plus"></i> &nbsp; Agregar Expediente</a>
         </div>
-        <h3 class="box-title">Clínicas</h3>
+        <h3 class="box-title">Expediente</h3>
       </div>
       <!-- /.box-header -->
       <div class="box-body">
         <table id="tabla" class="table table-bordered table-striped">
           <thead>
             <tr>
-              <th>Fecha</th>
-              <th>Altura</th>
-              <th>Peso</th>
-              <th>Presion Arterial</th>
-              <th>Pulso Cardiaco</th>
-              <th>Temperatura</th>
+              <th>Nombre</th>
+              <th>Apellido</th>
+              <th>Fecha de Nacimiento</th>
+              <th>Departamento</th>
+              <th>Municipio</th>
+              <th>DUI</th>
+              <th>Ocupacion</th>
+              <th>Padre</th>
+              <th>Madre</th>
+              <th>Conyugue</th>
+              <th>Estado Civil</th>
+              <th>Genero</th>
               <th>Opciones</th>
             </tr>
           </thead>
           <tbody>
-            {% for signo_vital in object_list %}
+            {% for expediente in object_list %}
             <tr>
-              <td>{{ signo_vital.temperatura }}</td>
+              <td>{{ expediente.nombre }}</td>
               <td style="width: 200px;">
-                <a href="{% url 'expediente:signo_vital_update' signo_vital.id %}">
+                <a href="{% url 'expediente:expediente_update' expediente.nombre %}">
                   <i class="fa fa-pencil" style="color: #ffbc07;"></i>&nbsp; Editar
                 </a>
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <a href="{% url 'expediente:signo_vital_delete' signo_vital.id %}">
+                <a href="{% url 'expediente:expediente_delete' expediente.nombre %}">
                   <i class="fa fa-trash" style="color: #df0024;"></i>&nbsp; Eliminar
                 </a>
               </td>
