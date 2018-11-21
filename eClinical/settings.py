@@ -41,6 +41,8 @@ INSTALLED_APPS = [
     'apps.usuarios',
     'apps.pais',
     'apps.expediente',
+    'apps.examenes',
+    'apps.consultas',
 ]
 
 MIDDLEWARE = [
