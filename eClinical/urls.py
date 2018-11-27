@@ -24,4 +24,5 @@ urlpatterns = [
     path('clinicas/', include('apps.clinicas.urls', namespace='clinicas')),
     path('usuarios/', include('apps.usuarios.urls', namespace='usuarios')),
     path('expediente/', include('apps.expediente.urls', namespace='expediente')),
+    path('consultas/', include('apps.consultas.urls', namespace='consultas')),
 ]
