@@ -42,31 +42,26 @@
         <table id="tabla" class="table table-bordered table-striped">
           <thead>
             <tr>
+              <th>No. Expediente</th>
               <th>Nombre</th>
-              <th>Apellido</th>
-              <th>Fecha de Nacimiento</th>
-              <th>Departamento</th>
-              <th>Municipio</th>
-              <th>DUI</th>
-              <th>Ocupacion</th>
-              <th>Padre</th>
-              <th>Madre</th>
-              <th>Conyugue</th>
-              <th>Estado Civil</th>
-              <th>Genero</th>
               <th>Opciones</th>
             </tr>
           </thead>
           <tbody>
             {% for expediente in object_list %}
             <tr>
-              <td>{{ expediente.nombre }}</td>
-              <td style="width: 200px;">
-                <a href="{% url 'expediente:expediente_update' expediente.nombre %}">
+              <td>{{ expediente.id }}</td>
+              <td>{{ expediente.nombre }} {{ expediente.apellido }}</td>
+              <td style="width: 350px">
+                <a href="{% url 'expediente:expediente_update' expediente.id %}">
+                  <i class="fa fa-pencil" style="color: #ffbc07;"></i>&nbsp; Enviar a Enfermeria
+                </a>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <a href="{% url 'expediente:expediente_update' expediente.id %}">
                   <i class="fa fa-pencil" style="color: #ffbc07;"></i>&nbsp; Editar
                 </a>
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <a href="{% url 'expediente:expediente_delete' expediente.nombre %}">
+                <a href="{% url 'expediente:expediente_delete' expediente.id %}">
                   <i class="fa fa-trash" style="color: #df0024;"></i>&nbsp; Eliminar
                 </a>
               </td>
