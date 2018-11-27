@@ -1,0 +1,93 @@
+{% extends 'base/general.html' %}
+{% load staticfiles %}
+
+{% block title %}Examenes de pruebas especiales{% endblock %}
+
+{% block styles %}
+<!-- DataTables -->
+<link rel="stylesheet" href="{% static 'css/dataTables.bootstrap.min.css' %}">
+{% endblock %}
+
+{% block header %}Gestión de Examenes de Sangre{% endblock %}
+
+{% block breadcrumb %}
+<ol class="breadcrumb">
+  <li><i class="fa fa-plus-circle"></i> &nbsp;  Examen Sangre</li>
+  <li class="active">  Examen sangre</li>
+</ol>
+{% endblock %}
+
+{% block content %}
+<div class="row">
+  <div class="col-xs-12">
+    {% if messages %}
+    {% for message in messages %}
+    <p class="alert alert-dismissable {% if message.tags %}alert-{{ message.tags }}"{% endif %}>
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <i class="fa fa-check-circle"></i> &nbsp;&nbsp; {{ message }}
+    </p>
+    {% endfor %}
+    {% endif %}
+
+    <!-- Box Primary -->
+    <div class="box box-primary">
+      <div class="box-header">
+        <div class="pull-right">
+          <a href="{% url 'examenes:examen_sangre_create' %}" class="btn btn-flat btn-primary"><i class="fa fa-plus"></i> &nbsp; Agregar examen de sangre</a>
+        </div>
+        <h3 class="box-title">Examenes de sangre</h3>
+      </div>
+      <!-- /.box-header -->
+      <div class="box-body">
+        <table id="tabla" class="table table-bordered table-striped">
+          <thead>
+            <tr>
+              <th>Codigo</th>
+              <th>Hemoglobina</th>
+              <th>Hamatocrito</th>
+              <th>MVC</th>
+              <th>MCH</th>
+              <th>MCHC</th>
+              <th>Plaquetas</th>
+              <th>MPV</th>
+              <th>PDW</th>
+              <th>Leucocitos</th>
+              <th>Neutrofilos</th>
+              <th>Linfocitos</th>
+              <th>monocitos</th>
+              <th>eucinofilos</th>
+              <th>basofilos</th>
+              
+            </tr>
+          </thead>
+          <tbody>
+            {% for examen_sangre in object_list %}
+            <tr>
+              <td>{{ examen_sangre.cod }}</td>
+              <td style="width: 200px;">
+                <a href="{% url 'examenes:examen_sangre_update' examen_sangre.id %}">
+                  <i class="fa fa-pencil" style="color: #ffbc07;"></i>&nbsp; Editar
+                </a>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <a href="{% url 'examenes:examen_sangre_delete' examen_sangre.id %}">
+                  <i class="fa fa-trash" style="color: #df0024;"></i>&nbsp; Eliminar
+                </a>
+              </td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+      <!-- /.box-body -->
+    </div>
+    <!-- /.box -->
+  </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<!-- DataTables -->
+<script src="{% static 'js/jquery.dataTables.js' %}"></script>
+<script src="{% static 'js/dataTables.bootstrap.min.js' %}"></script>
+<script src="{% static 'js/tabla.js' %}"></script>
+{% endblock %}
