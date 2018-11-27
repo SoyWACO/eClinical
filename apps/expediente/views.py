@@ -79,8 +79,14 @@ class ExpedienteView(TemplateView):
 
     '''Para los datos
     def get_context_data(self, **kwargs):
+    	article = get_object_or_404(Article, pk=kwargs['pk'])
         context = super().get_context_data(**kwargs)
         context['latest_articles'] = Article.objects.all()[:5]
         return context
     '''
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['expediente'] = Expediente.objects.get(pk=kwargs['pk'])
+        return context
 

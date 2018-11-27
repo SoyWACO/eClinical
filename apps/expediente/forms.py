@@ -83,7 +83,7 @@ class ExpedienteForm(forms.ModelForm):
 			'genero':'genero',
 		}
 		widgets = {
-			'nombre':forms.NumberInput(attrs={
+			'nombre':forms.TextInput(attrs={
 				'class':'form-control',
 				'placeholder':'Nombre',
 				}),
@@ -91,19 +91,19 @@ class ExpedienteForm(forms.ModelForm):
 				'class':'form-control',
 				'placeholder':'Apellido',
 				}),
-			'fecha_nacimiento':forms.TextInput(attrs={
+			'fecha_nacimiento':forms.DateInput(attrs={
 				'class':'form-control',
 				'placeholder':'Fecha nacimiento',
 				}),
-			'departamento':forms.TextInput(attrs={
+			'departamento':forms.Select(attrs={
 				'class':'form-control',
 				'placeholder':'Departamento',
 				}),
-			'municipio':forms.TextInput(attrs={
+			'municipio':forms.Select(attrs={
 				'class':'form-control',
 				'placeholder':'Municipio',
 				}),
-			'DUI':forms.NumberInput(attrs={
+			'DUI':forms.TextInput(attrs={
 				'class':'form-control',
 				'placeholder':'DUI',
 				}),

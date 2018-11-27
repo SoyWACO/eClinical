@@ -21,6 +21,6 @@ urlpatterns = [
 	path('expediente/<pk>/delete/', ExpedienteDelete.as_view(), name='expediente_delete'),
 	# EXPEDIENTE #
 	# Falta agregar id del expediente
-	path('view/', ExpedienteView.as_view(), name='expediente_view'),
+	path('<pk>/view/', ExpedienteView.as_view(), name='expediente_view'),
 
 ]

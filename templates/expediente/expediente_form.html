@@ -37,7 +37,7 @@
               {% csrf_token %}
               {{ form.as_p }}
               <div class="pull-right">
-              	<a href="{% url 'expediente:signo_vital_list' %}" class="btn btn-flat btn-default">Cancelar</a> &nbsp;&nbsp;
+              	<a href="{% url 'expediente:expediente_list' %}" class="btn btn-flat btn-default">Cancelar</a> &nbsp;&nbsp;
                 <button type="submit" class="btn btn-flat btn-primary">Guardar</button>	
               </div>
             </form>	
