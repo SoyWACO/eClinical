@@ -144,10 +144,24 @@
           </a>
         </li>
         <li>
-          <a href="{% url 'home' %}">
+          <a href="{% url 'examenes:prueba_especial_list' %}">
             <i class="fa fa-flask"></i> <span>Laboratorios</span>
           </a>
         </li>
+
+         <li class="treeview">
+          <a href="">
+            <i class="fa fa-plus-circle"></i> <span>Laboratorios</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu">
+            <li><a href="{% url 'examenes:prueba_especial_list' %}"><i class="fa fa-circle-o"></i> Pruebeas especiales</a></li>
+            <li><a href=""><i class="fa fa-circle-o"></i>Examenes de sangre</a></li>
+          </ul>
+        </li>
+
         <li class="treeview">
           <a href="">
             <i class="fa fa-plus-circle"></i> <span>Clínicas</span>
