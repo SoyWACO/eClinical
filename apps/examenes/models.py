@@ -30,5 +30,38 @@ class ExamenSangre(models.Model):
 	eucinofilos = models.IntegerField(null=True, blank=True)
 	basofilos = models.IntegerField(null=True, blank=True)
 
+#-------------------------------------------------------------------
+class ExamenOrina(models.Model):
+	cod = models.CharField(max_length=10)
+	aspecto = models.CharField(max_length=50, null=True, blank=True)
+	color = models.CharField(max_length=50,null=True, blank=True)
+	ph = models.IntegerField(null=True, blank=True)
+	nitrito = models.CharField(max_length=50,null=True, blank=True)
+	proteinas= models.IntegerField(null=True, blank=True)
+	glucosa = models.IntegerField(null=True, blank=True)
+	cuerpo_cetonico = models.CharField(max_length=50, null=True, blank=True)
+	bilirubina = models.CharField(max_length=50, null=True, blank=True)
+	sangre_oculta = models.IntegerField(null=True, blank=True)
+	leucocitos = models.CharField(max_length=50, null=True, blank=True)
+	hematies = models.CharField(max_length=50, null=True, blank=True)
+	cel_epitelalias = models.CharField(max_length=50, null=True, blank=True)
+	cilindros = models.CharField(max_length=50, null=True, blank=True)
+	parasitos= models.CharField(max_length=50, null=True, blank=True)
+	otros = models.CharField(max_length=50, null=True, blank=True)
+	cristales = models.CharField(max_length=50, null=True, blank=True)
+	
 
+#---------------------------------------------------------------
+
+class ExamenHeces(models.Model):
+	cod = models.CharField(max_length=10)
+	color = models.CharField(max_length=50,null=True, blank=True)
+	mucus = models.CharField(max_length=50,null=True, blank=True)
+	leucocitos= models.CharField(max_length=50, null=True, blank=True)
+	hematies = models.CharField(max_length=50, null=True, blank=True)
+	consistencia = models.CharField(max_length=50, null=True, blank=True)
+	res_alimen_macros = models.CharField(max_length=50, null=True, blank=True)
+	res_alimen_micros = models.CharField(max_length=50, null=True, blank=True)
+	levaduras = models.CharField(max_length=50, null=True, blank=True)
+	
 	
