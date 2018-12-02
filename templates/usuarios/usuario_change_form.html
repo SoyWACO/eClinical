@@ -67,6 +67,18 @@
                 <br>
                 <span class="helptext">Opcional. Mantenga presionado "Control, o "Command" en una Mac, para seleccionar más de uno.</span>
               </p>
+              <!-- Clínica -->
+              <p>
+                <label for="id_first_name">Clínica:</label>
+                {{ form.clinica }}
+                <span class="helptext">Opcional.</span>
+              </p>
+              <!-- Departamentos médicos o administrativos -->
+              <p>
+                <label for="id_first_name">Departamentos médicos o administrativos:</label>
+                {{ form.departamentos }}
+                <span class="helptext">Opcional. Mantenga presionado "Control, o "Command" en una Mac, para seleccionar más de uno.</span>
+              </p>
               <div class="pull-right">
               	<a href="{% url 'usuarios:usuario_list' %}" class="btn btn-flat btn-default">Cancelar</a> &nbsp;&nbsp;
                 <button type="submit" class="btn btn-flat btn-primary">Guardar</button>	

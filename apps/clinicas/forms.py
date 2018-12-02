@@ -88,5 +88,8 @@ class ClinicaForm(forms.ModelForm):
 				'class':'form-control',
 				'placeholder':'Dirección donde se ubica la clínica',
 				}),
-			'departamentos':forms.CheckboxSelectMultiple(),
+			'departamentos':forms.SelectMultiple(attrs={
+				'class':'form-control',
+				'placeholder':'Departamentos clínicos o administrativos',
+				}),
 		}

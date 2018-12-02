@@ -53,8 +53,8 @@
               <td>{{ expediente.id }}</td>
               <td><a href="{% url 'expediente:expediente_view' expediente.id %}">{{ expediente.nombre }} {{ expediente.apellido }}</a></td>
               <td style="width: 350px">
-                <a href="{% url 'expediente:expediente_update' expediente.id %}">
-                  <i class="fa fa-pencil" style="color: #ffbc07;"></i>&nbsp; Enviar a Enfermeria
+                <a href="{% url 'consultas:cola_enfermeria_create' expediente.id %}">
+                  <i class="fa fa-external-link-square" style="color: #3c8dbc;"></i>&nbsp; Enviar a Enfermería
                 </a>
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 <a href="{% url 'expediente:expediente_update' expediente.id %}">

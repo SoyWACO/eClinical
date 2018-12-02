@@ -32,7 +32,7 @@
           <li><a href="#">Fecha de nacimiento <span class="pull-right">{{ expediente.fecha_nacimiento }}</span></a></li>
           <li><a href="#">DUI <span class="pull-right">{{ expediente.dui }}</span></a></li>
           <li><a href="#">Ocupación <span class="pull-right">{{ expediente.ocupacion }}</span></a></li>
-          <li><a href="#" class="text-center">Editar</a></li>
+          <li><a href="{% url 'expediente:expediente_update' expediente.id %}" class="text-center">Editar</a></li>
         </ul>
       </div>
     </div>

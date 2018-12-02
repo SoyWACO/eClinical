@@ -14,7 +14,23 @@ class UsuarioCreationForm(UserCreationForm):
 			'last_name',
 			'email',
 			'groups',
+			'clinica',
+			'departamentos',
 		]
+		widgets = {
+			'groups':forms.SelectMultiple(attrs={
+				'class':'form-control',
+				'placeholder':'Roles de Usuario',
+				}),
+			'clinica':forms.Select(attrs={
+				'class':'form-control',
+				'placeholder':'Clínica',
+				}),
+			'departamentos':forms.SelectMultiple(attrs={
+				'class':'form-control',
+				'placeholder':'Departamentos médicos o administrativos',
+				}),
+		}
 
 class UsuarioChangeForm(UserChangeForm):
 
@@ -26,7 +42,23 @@ class UsuarioChangeForm(UserChangeForm):
 			'last_name',
 			'email',
 			'groups',
+			'clinica',
+			'departamentos',
 		]
+		widgets = {
+			'groups':forms.SelectMultiple(attrs={
+				'class':'form-control',
+				'placeholder':'Roles de Usuario',
+				}),
+			'clinica':forms.Select(attrs={
+				'class':'form-control',
+				'placeholder':'Clínica',
+				}),
+			'departamentos':forms.SelectMultiple(attrs={
+				'class':'form-control',
+				'placeholder':'Departamentos médicos o administrativos',
+				}),
+		}
 
 class GroupForm(forms.ModelForm):
 
