@@ -71,7 +71,7 @@ class ExpedienteForm(forms.ModelForm):
 		labels = {
 			'nombre':'Nombre', 
 			'apellido':'Apellido',
-			'fecha_nacimiento':'Fecha nacimiento',
+			'fecha_nacimiento':'Fecha de nacimiento',
 			'departamento':'Departamento',
 			'municipio':'Municipio',
 			'DUI':'DUI',
@@ -80,7 +80,7 @@ class ExpedienteForm(forms.ModelForm):
 			'madre':'Madre',
 			'conyugue':'Conyugue',
 			'estado_civil':'Estado civil',
-			'genero':'genero',
+			'genero':'Género',
 		}
 		widgets = {
 			'nombre':forms.TextInput(attrs={
@@ -93,7 +93,7 @@ class ExpedienteForm(forms.ModelForm):
 				}),
 			'fecha_nacimiento':forms.DateInput(attrs={
 				'class':'form-control',
-				'placeholder':'Fecha nacimiento',
+				'placeholder':'Fecha de nacimiento',
 				}),
 			'departamento':forms.Select(attrs={
 				'class':'form-control',
@@ -123,12 +123,12 @@ class ExpedienteForm(forms.ModelForm):
 				'class':'form-control',
 				'placeholder':'Conyugue',
 				}),
-			'estado_civil':forms.TextInput(attrs={
+			'estado_civil':forms.Select(attrs={
 				'class':'form-control',
 				'placeholder':'Estado civil',
 				}),
-			'genero':forms.TextInput(attrs={
+			'genero':forms.Select(attrs={
 				'class':'form-control',
-				'placeholder':'Genero',
+				'placeholder':'Género',
 				}),
 		}
