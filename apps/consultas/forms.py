@@ -2,6 +2,8 @@
 from django import forms
 from apps.consultas.models import ColaEnfermeria
 
+# ------------------ COLA DE ENFERMERIA ------------------ #
+
 class ColaEnfermeriaForm(forms.ModelForm):
 
 	class Meta:

@@ -8,10 +8,10 @@ app_name = 'expediente'
 urlpatterns = [
 
 	# Signos Vitales
-	path('signo_vitales/', SignoVitalList.as_view(), name='signo_vital_list'),
-	path('signo_vitales/add/', SignoVitalCreate.as_view(), name='signo_vital_create'),
-	path('signo_vitales/<pk>/change/', SignoVitalUpdate.as_view(), name='signo_vital_update'),
-	path('signo_vitales/<pk>/delete/', SignoVitalDelete.as_view(), name='signo_vital_delete'),
+	path('signos_vitales/', SignoVitalList.as_view(), name='signo_vital_list'),
+	path('signos_vitales/<pk>/add/', SignoVitalCreate.as_view(), name='signo_vital_create'),
+	path('signos_vitales/<pk>/change/', SignoVitalUpdate.as_view(), name='signo_vital_update'),
+	path('signos_vitales/<pk>/delete/', SignoVitalDelete.as_view(), name='signo_vital_delete'),
 
 
 	#expediente

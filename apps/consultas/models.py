@@ -4,11 +4,13 @@ from apps.expediente.models import Expediente
 
 # Create your models here.
 
+# ------------------ COLA DE ENFERMERIA ------------------ #
+
 class ColaEnfermeria(models.Model):
 	PRIORIDAD_CHOICES = (
 		('A', 'Alta'),
-		('M', 'Media'),
-		('B', 'Baja'),
+		('B', 'Media'),
+		('C', 'Baja'),
 	)
 	expediente = models.ForeignKey(Expediente, blank=True, on_delete=models.CASCADE)
 	clinica = models.ForeignKey(Clinica, blank=True, on_delete=models.CASCADE)

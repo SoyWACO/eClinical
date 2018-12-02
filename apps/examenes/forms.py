@@ -1,44 +1,47 @@
 from django import forms
 from apps.examenes.models import PruebaEspecial, ExamenSangre, ExamenOrina, ExamenHeces
 
+# -------------------- PRUEBA ESPECIAL ------------------- #
+
 class PruebaEspecialForm(forms.ModelForm):
 
 	class Meta:
 		model = PruebaEspecial
 		fields = [
-			'codigo',
-			'tipo',
-			'des',
-			
+			'expediente',
+			'usuario',
+			'observaciones',
 		]
 		labels = {
-			'codigo':'Codigo',
-			'tipo':'Tipo',
-			'des':'Descripcion',
-			
+			'expediente':'Paciente',
+			'usuario':'Médico',
+			'observaciones':'Observaciones',
 		}
 		widgets = {
-			'codigo':forms.TextInput(attrs={
+			'expediente':forms.Select(attrs={
 				'class':'form-control',
-				'placeholder':'Codigo',
+				'placeholder':'Paciente',
 				}),
-			'tipo':forms.TextInput(attrs={
+			'usuario':forms.Select(attrs={
 				'class':'form-control',
-				'placeholder':'Tipo',
+				'placeholder':'Médico',
 				}),
-			'des':forms.TextInput(attrs={
+			'observaciones':forms.Textarea(attrs={
 				'class':'form-control',
-				'placeholder':'Descripcion',
+				'placeholder':'Observaciones',
 				}),
-			
 		}
+
+# -------------- EXAMEN DE QUIMICA SANGUINEA ------------- #
 
 class ExamenSangreForm(forms.ModelForm):
 
 	class Meta:
 		model = ExamenSangre
 		fields = [
-			'cod',
+			'expediente',
+			'usuario',
+			'rbc',
 			'hemoglobina',
 			'hematocrito',
 			'mvc',
@@ -51,13 +54,14 @@ class ExamenSangreForm(forms.ModelForm):
 			'neutrofilos',
 			'linfocitos',
 			'monocitos',
-			'eucinofilos',
+			'eosinofilos',
 			'basofilos',
-			
-			
+			'observaciones',
 		]
 		labels = {
-			'cod':'Codigo',
+			'expediente':'Paciente',
+			'usuario':'Médico',
+			'rbc':'RBC',
 			'hemoglobina':'Hemoglobina',
 			'hematocrito':'Hematocrito',
 			'mvc':'MVC',
@@ -70,14 +74,22 @@ class ExamenSangreForm(forms.ModelForm):
 			'neutrofilos':'Neutrofilos',
 			'linfocitos':'Linfocitos',
 			'monocitos':'Monocitos',
-			'eucinofilos':'Eucinofilos',
+			'eosinofilos':'Eosinofilos',
 			'basofilos':'Basofilos',
-			
+			'observaciones':'Observaciones',
 		}
 		widgets = {
-			'cod':forms.NumberInput(attrs={
+			'expediente':forms.Select(attrs={
 				'class':'form-control',
-				'placeholder':'Codigo',
+				'placeholder':'Paciente',
+				}),
+			'usuario':forms.Select(attrs={
+				'class':'form-control',
+				'placeholder':'Médico',
+				}),
+			'rbc':forms.NumberInput(attrs={
+				'class':'form-control',
+				'placeholder':'NBC',
 				}),
 			'hemoglobina':forms.NumberInput(attrs={
 				'class':'form-control',
@@ -127,66 +139,80 @@ class ExamenSangreForm(forms.ModelForm):
 				'class':'form-control',
 				'placeholder':'Monocitos',
 				}),
-			'eucinofilos':forms.NumberInput(attrs={
+			'eosinofilos':forms.NumberInput(attrs={
 				'class':'form-control',
-				'placeholder':'Eucinofilos',
+				'placeholder':'Eosinofilos',
 				}),
 			'basofilos':forms.NumberInput(attrs={
 				'class':'form-control',
 				'placeholder':'Basofilos',
 				}),
+			'observaciones':forms.Textarea(attrs={
+				'class':'form-control',
+				'placeholder':'Observaciones',
+				}),
 		}		
 
-
+# -------------------- EXAMEN DE ORINA ------------------- #
 
 class ExamenOrinaForm(forms.ModelForm):
 
 	class Meta:
 		model = ExamenOrina
 		fields = [
-			'cod',
+			'expediente',
+			'usuario',
 			'aspecto',
 			'color',
 			'ph',
-			'nitrito',
+			'densidad',
+			'esteraza_leucocitaria',
+			'nitritos',
 			'proteinas',
 			'glucosa',
-			'cuerpo_cetonico',
-			'bilirubina',
+			'cuerpos_cetonicos',
+			'urobilinogeno',
+			'bilirrubina',
 			'sangre_oculta',
 			'leucocitos',
 			'hematies',
-			'cel_epitelalias',
 			'cilindros',
+			'cristales',
 			'parasitos',
 			'otros',
-			'cristales',
-			
+			'observaciones',
 		]
 		labels = {
-			'cod':'Codigo',
+			'expediente':'Paciente',
+			'usuario':'Médico',
 			'aspecto':'Aspecto',
 			'color':'Color',
 			'ph':'PH',
-			'nitrito':'Nitrito',
-			'proteinas':'Proteinas',
-			'glucosa':'Color',
-			'cuerpo_cetonico':'Cuerpo cetonico',
-			'bilirubina':'Bilirubina',
+			'densidad':'Densidad',
+			'esteraza_leucocitaria':'Esteraza leucocitaria',
+			'nitritos':'Nitritos',
+			'proteinas':'Proteínas',
+			'glucosa':'Glucosa',
+			'cuerpos_cetonicos':'Cuerpos cetónicos',
+			'urobilinogeno':'Urobilinógeno',
+			'bilirrubina':'Bilirrubina',
 			'sangre_oculta':'Sangre oculta',
 			'leucocitos':'Leucocitos',
 			'hematies':'Hematies',
-			'cel_epitelalias':'Celulas epitelalias',
 			'cilindros':'Cilindros',
-			'parasitos':'Parasitos',
-			'otros':'Otros',
 			'cristales':'Cristales',
-			
+			'parasitos':'Parásitos',
+			'otros':'Otros',
+			'observaciones':'Observaciones',
 		}
 		widgets = {
-			'cod':forms.TextInput(attrs={
+			'expediente':forms.Select(attrs={
 				'class':'form-control',
-				'placeholder':'Codigo',
+				'placeholder':'Paciente',
+				}),
+			'usuario':forms.Select(attrs={
+				'class':'form-control',
+				'placeholder':'Médico',
 				}),
 			'aspecto':forms.TextInput(attrs={
 				'class':'form-control',
@@ -200,66 +226,81 @@ class ExamenOrinaForm(forms.ModelForm):
 				'class':'form-control',
 				'placeholder':'PH',
 				}),
-			'nitrito':forms.TextInput(attrs={
+			'densidad':forms.NumberInput(attrs={
 				'class':'form-control',
-				'placeholder':'Nitrito',
+				'placeholder':'Densidad',
+				}),
+			'esteraza_leucocitaria':forms.NumberInput(attrs={
+				'class':'form-control',
+				'placeholder':'Esteraza leucocitaria',
+				}),
+			'nitritos':forms.NumberInput(attrs={
+				'class':'form-control',
+				'placeholder':'Nitritos',
 				}),
 			'proteinas':forms.NumberInput(attrs={
 				'class':'form-control',
-				'placeholder':'Proteinas',
+				'placeholder':'Proteínas',
 				}),
 			'glucosa':forms.NumberInput(attrs={
 				'class':'form-control',
 				'placeholder':'Glucosa',
 				}),
-			'cuerpo_cetonico':forms.TextInput(attrs={
+			'cuerpos_cetonicos':forms.NumberInput(attrs={
 				'class':'form-control',
-				'placeholder':'Cuerpo cetonico',
+				'placeholder':'Cuerpos cetónicos',
 				}),
-			'bilirubina':forms.TextInput(attrs={
+			'urobilinogeno':forms.NumberInput(attrs={
 				'class':'form-control',
-				'placeholder':'Bilirubina',
+				'placeholder':'Urobilinógeno',
+				}),
+			'bilirrubina':forms.NumberInput(attrs={
+				'class':'form-control',
+				'placeholder':'Bilirrubina',
 				}),
 			'sangre_oculta':forms.NumberInput(attrs={
 				'class':'form-control',
 				'placeholder':'Sangre oculta',
 				}),
-			'leucocitos':forms.TextInput(attrs={
+			'leucocitos':forms.NumberInput(attrs={
 				'class':'form-control',
 				'placeholder':'Leucocitos',
 				}),
-			'hematies':forms.TextInput(attrs={
+			'hematies':forms.NumberInput(attrs={
 				'class':'form-control',
 				'placeholder':'Hematies',
-				}),
-			'cel_epitelalias':forms.TextInput(attrs={
-				'class':'form-control',
-				'placeholder':'Celulas epitelalias',
 				}),
 			'cilindros':forms.TextInput(attrs={
 				'class':'form-control',
 				'placeholder':'Cilindros',
 				}),
+			'cristales':forms.TextInput(attrs={
+				'class':'form-control',
+				'placeholder':'Cristales',
+				}),
 			'parasitos':forms.TextInput(attrs={
 				'class':'form-control',
-				'placeholder':'Parasitos',
+				'placeholder':'Parásitos',
 				}),
 			'otros':forms.TextInput(attrs={
 				'class':'form-control',
 				'placeholder':'Otros',
 				}),
-			'cristales':forms.TextInput(attrs={
+			'observaciones':forms.Textarea(attrs={
 				'class':'form-control',
-				'placeholder':'Cristales',
+				'placeholder':'Observaciones',
 				}),
 		}		
+
+# -------------------- EXAMEN DE HECES ------------------- #
 
 class ExamenHecesForm(forms.ModelForm):
 
 	class Meta:
 		model = ExamenHeces
 		fields = [
-			'cod',
+			'expediente',
+			'usuario',
 			'color',
 			'mucus',
 			'leucocitos',
@@ -268,26 +309,33 @@ class ExamenHecesForm(forms.ModelForm):
 			'res_alimen_macros',
 			'res_alimen_micros',
 			'levaduras',
-			
-			
+			'protozoarios',
+			'metazoarios',
+			'observaciones',
 		]
 		labels = {
-			'cod':'Codigo',
+			'expediente':'Paciente',
+			'usuario':'Médico',
 			'color':'Color',
 			'mucus':'Mucus',
 			'leucocitos':'Leucocitos',
 			'hematies':'Hematies',
 			'consistencia':'Consistencia',
-			'res_alimen_macros':'Restos Alimentos macros',
-			'res_alimen_micros':'Restos Alimentos micros',
+			'res_alimen_macros':'Restos alimenticios macroscópicos',
+			'res_alimen_micros':'Restos alimenticios microscópicos',
 			'levaduras':'Levaduras',
-			
-			
+			'protozoarios':'Protozoarios',
+			'metazoarios':'Metazoarios',
+			'observaciones':'Observaciones',
 		}
 		widgets = {
-			'cod':forms.TextInput(attrs={
+			'expediente':forms.Select(attrs={
 				'class':'form-control',
-				'placeholder':'Codigo',
+				'placeholder':'Paciente',
+				}),
+			'usuario':forms.Select(attrs={
+				'class':'form-control',
+				'placeholder':'Médico',
 				}),
 			'color':forms.TextInput(attrs={
 				'class':'form-control',
@@ -305,11 +353,11 @@ class ExamenHecesForm(forms.ModelForm):
 				'class':'form-control',
 				'placeholder':'Hematies',
 				}),
-			'consistencia':forms.NumberInput(attrs={
+			'consistencia':forms.TextInput(attrs={
 				'class':'form-control',
 				'placeholder':'Consistencia',
 				}),
-			'res_alimen_macros':forms.NumberInput(attrs={
+			'res_alimen_macros':forms.TextInput(attrs={
 				'class':'form-control',
 				'placeholder':'Restos Alimentos macros',
 				}),
@@ -321,5 +369,16 @@ class ExamenHecesForm(forms.ModelForm):
 				'class':'form-control',
 				'placeholder':'Levaduras',
 				}),
-			
-		}		
+			'protozoarios':forms.Select(attrs={
+				'class':'form-control',
+				'placeholder':'Protozoarios',
+				}),
+			'metazoarios':forms.Select(attrs={
+				'class':'form-control',
+				'placeholder':'Metazoarios',
+				}),
+			'observaciones':forms.TextInput(attrs={
+				'class':'form-control',
+				'placeholder':'Observaciones',
+				}),
+		}

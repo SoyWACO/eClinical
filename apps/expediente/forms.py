@@ -2,27 +2,33 @@
 from django import forms
 from apps.expediente.models import SignoVital, Expediente 
 
+# -------------------- SIGNOS VITALES -------------------- #
+
 class SignoVitalForm(forms.ModelForm):
 
 	class Meta:
 		model = SignoVital
 		fields = [
+			'expediente',
 			'temperatura',
 			'altura',
 			'peso',
 			'presion_arterial',
 			'pulso_cardiaco',
-			'fecha',
 		]
 		labels = {
+			'expediente':'Paciente',
 			'temperatura':'Temperatura',
 			'altura':'Altura',
 			'peso':'Peso',
 			'presion_arterial':'Presión arterial',
 			'pulso_cardiaco':'Pulso cardíaco',
-			'fecha':'Fecha',
 		}
 		widgets = {
+			'expediente':forms.Select(attrs={
+				'class':'form-control',
+				'placeholder':'Paciente',
+				}),
 			'temperatura':forms.NumberInput(attrs={
 				'class':'form-control',
 				'placeholder':'Temperatura',
@@ -43,13 +49,10 @@ class SignoVitalForm(forms.ModelForm):
 				'class':'form-control',
 				'placeholder':'Pulso cardíaco',
 				}),
-			'fecha':forms.TextInput(attrs={
-				'class':'form-control',
-				'placeholder':'Fecha',
-				}),
 		}
 
-#---------------------formulario expediente--------------------------#
+# ---------------------- EXPEDIENTE ---------------------- #
+
 class ExpedienteForm(forms.ModelForm):
 
 	class Meta:
@@ -60,6 +63,7 @@ class ExpedienteForm(forms.ModelForm):
 			'fecha_nacimiento',
 			'departamento',
 			'municipio',
+			'direccion',
 			'DUI',
 			'ocupacion',
 			'padre',
@@ -74,8 +78,9 @@ class ExpedienteForm(forms.ModelForm):
 			'fecha_nacimiento':'Fecha de nacimiento',
 			'departamento':'Departamento',
 			'municipio':'Municipio',
+			'direccion':'Dirección',
 			'DUI':'DUI',
-			'ocupacion':'Ocupacion',
+			'ocupacion':'Ocupación',
 			'padre':'Padre',
 			'madre':'Madre',
 			'conyugue':'Conyugue',
@@ -103,13 +108,17 @@ class ExpedienteForm(forms.ModelForm):
 				'class':'form-control',
 				'placeholder':'Municipio',
 				}),
-			'DUI':forms.TextInput(attrs={
+			'direccion':forms.Textarea(attrs={
+				'class':'form-control',
+				'placeholder':'Dirección',
+				}),
+			'dui':forms.TextInput(attrs={
 				'class':'form-control',
 				'placeholder':'DUI',
 				}),
 			'ocupacion':forms.TextInput(attrs={
 				'class':'form-control',
-				'placeholder':'Ocupacion',
+				'placeholder':'Ocupación',
 				}),
 			'padre':forms.TextInput(attrs={
 				'class':'form-control',

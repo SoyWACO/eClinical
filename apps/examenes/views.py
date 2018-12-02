@@ -1,12 +1,11 @@
 from django.shortcuts import render
-
-
 from django.urls import reverse_lazy
 from django.contrib.messages.views import SuccessMessageMixin
 from django.contrib import messages
 from django.views.generic import ListView, CreateView, UpdateView, DeleteView, TemplateView
 from apps.examenes.models import PruebaEspecial, ExamenSangre, ExamenOrina, ExamenHeces
 from apps.examenes.forms import PruebaEspecialForm, ExamenSangreForm, ExamenOrinaForm, ExamenHecesForm
+
 # Create your views here.
 
 class PruebaEspecialList(ListView):

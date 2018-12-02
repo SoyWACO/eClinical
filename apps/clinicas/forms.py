@@ -2,6 +2,8 @@
 from django import forms
 from apps.clinicas.models import Departamento, Clinica
 
+# --------------------- DEPARTAMENTO --------------------- #
+
 class DepartamentoForm(forms.ModelForm):
 
 	class Meta:
@@ -31,6 +33,8 @@ class DepartamentoForm(forms.ModelForm):
 				'placeholder':'Descripción de las funciones que desempeña el departamento',
 				}),
 		}
+
+# ------------------------ CLINICA ----------------------- #
 
 class ClinicaForm(forms.ModelForm):
 

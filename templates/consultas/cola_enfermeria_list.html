@@ -1,0 +1,99 @@
+{% extends 'base/general.html' %}
+
+{% load staticfiles %}
+
+{% load tz %}
+
+{% block title %}Enfermería{% endblock %}
+
+{% block styles %}
+<!-- DataTables -->
+<link rel="stylesheet" href="{% static 'css/dataTables.bootstrap.min.css' %}">
+{% endblock %}
+
+{% block header %}Enfermería{% endblock %}
+
+{% block breadcrumb %}
+<ol class="breadcrumb">
+  <li><i class="fa fa-heartbeat"></i> &nbsp; Enfermería</li>
+  <li class="active">Cola de Enfermería</li>
+</ol>
+{% endblock %}
+
+{% block content %}
+<div class="row">
+  <div class="col-xs-12">
+    {% if messages %}
+    {% for message in messages %}
+    <p class="alert alert-dismissable {% if message.tags %}alert-{{ message.tags }}"{% endif %}>
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <i class="fa fa-check-circle"></i> &nbsp;&nbsp; {{ message }}
+    </p>
+    {% endfor %}
+    {% endif %}
+
+    <!-- Box Primary -->
+    <div class="box box-primary">
+      <div class="box-header">
+        <h3 class="box-title">Cola de Enfermería</h3>
+      </div>
+      <!-- /.box-header -->
+      <div class="box-body">
+        <table id="tabla" class="table table-bordered table-striped">
+          <thead>
+            <tr>
+              <th>Prioridad</th>
+              <th>Fecha y hora</th>
+              <th>No. Expediente</th>
+              <th>Paciente</th>
+              <th>Opciones</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for cola in object_list %}
+            <tr>
+              <td>
+                {% if cola.prioridad == "A" %}
+                <span class="label label-danger">Alta</span>
+                {% elif cola.prioridad == "B" %}
+                <span class="label label-warning">Media</span>
+                {% else %}
+                <span class="label label-success">Baja</span>
+                {% endif %}
+              </td>
+              {% timezone "America/El_Salvador" %}
+              <td>{{ cola.fecha_hora }}</td>
+              {% endtimezone %}
+              <td>{{ cola.expediente.id }}</td>
+              <td>{{ cola.expediente.nombre }} {{ cola.expediente.apellido }}</td>
+              <td style="width: 350px">
+                <a href="{% url 'consultas:cola_enfermeria_create' cola.expediente.id %}">
+                  <i class="fa fa-external-link-square" style="color: #3c8dbc;"></i>&nbsp; Enviar a Consulta
+                </a>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <a href="{% url 'expediente:signo_vital_create' cola.expediente.id %}">
+                  <i class="fa fa-heartbeat" style="color: #df0024;"></i>&nbsp; Signos Vitales
+                </a>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <a href="{% url 'expediente:expediente_delete' cola.expediente.id %}">
+                  <i class="fa fa-trash" style="color: #df0024;"></i>&nbsp; Eliminar
+                </a>
+              </td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+      <!-- /.box-body -->
+    </div>
+    <!-- /.box -->
+  </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<!-- DataTables -->
+<script src="{% static 'js/jquery.dataTables.js' %}"></script>
+<script src="{% static 'js/dataTables.bootstrap.min.js' %}"></script>
+<script src="{% static 'js/tabla.js' %}"></script>
+{% endblock %}

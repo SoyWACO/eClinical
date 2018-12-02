@@ -13,8 +13,12 @@ from apps.clinicas.models import Clinica
 # COLA DE ENFERMERIA #
 
 class ColaEnfermeriaList(ListView):
-	model = ColaEnfermeria
+	# model = ColaEnfermeria
 	template_name = 'consultas/cola_enfermeria_list.html'
+
+	def get_queryset(self):
+		queryset = ColaEnfermeria.objects.filter(clinica=self.request.user.clinica.id)
+		return queryset
 
 class ColaEnfermeriaCreate(SuccessMessageMixin, CreateView):
 	model = ColaEnfermeria
@@ -36,7 +40,8 @@ class ColaEnfermeriaCreate(SuccessMessageMixin, CreateView):
 		expediente = Expediente.objects.get(id=self.kwargs['pk'])
 		self.model.expediente = expediente
 		self.object.save()
-		return context'''
+		return context
+	'''
 
 	def get_initial(self):
 		user = self.request.user
