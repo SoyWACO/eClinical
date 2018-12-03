@@ -3,8 +3,8 @@ from django.urls import reverse_lazy
 from django.contrib.messages.views import SuccessMessageMixin
 from django.contrib import messages
 from django.views.generic import ListView, CreateView, UpdateView, DeleteView, TemplateView
-from apps.consultas.models import ColaEnfermeria, ColaConsulta
-from apps.consultas.forms import ColaEnfermeriaForm, ColaConsultaForm
+from apps.consultas.models import ColaEnfermeria, ColaConsulta, ConsultaMedica
+from apps.consultas.forms import ColaEnfermeriaForm, ColaConsultaForm, ConsultaMedicaForm
 from apps.expediente.models import Expediente
 from apps.clinicas.models import Clinica, Departamento
 from apps.usuarios.models import Usuario
@@ -31,7 +31,7 @@ class ColaEnfermeriaCreate(SuccessMessageMixin, CreateView):
 	form_class = ColaEnfermeriaForm
 	template_name = 'consultas/cola_enfermeria_form.html'
 	success_url = reverse_lazy('expediente:expediente_list')
-	success_message = 'Expediente agregado a cola de enfermeria correctamente'
+	success_message = 'Expediente agregado a cola de enfermería correctamente'
 
 	'''def post(self, request, *args, **kwargs):
 		#expediente_id = args['pk']
@@ -70,7 +70,7 @@ class ColaEnfermeriaDelete(SuccessMessageMixin, DeleteView):
 	model = ColaEnfermeria
 	template_name = 'consultas/cola_enfermeria_delete.html'
 	success_url = reverse_lazy('consultas:cola_enfermeria_list')
-	success_message = 'Expediente eliminado de cola de enfermeria correctamente'
+	success_message = 'Expediente eliminado de cola de enfermería correctamente'
 
 	def delete(self, request, *args, **kwargs):
 		obj = self.get_object()
@@ -96,7 +96,7 @@ class ColaConsultaCreate(SuccessMessageMixin, CreateView):
 	model = ColaConsulta
 	form_class = ColaConsultaForm
 	template_name = 'consultas/cola_consulta_form.html'
-	success_url = reverse_lazy('consultas:cola_consulta_list')
+	success_url = reverse_lazy('consultas:cola_enfermeria_list')
 	success_message = 'Expediente agregado a cola de consulta correctamente'
 
 	def get_context_data(self, **kwargs):
@@ -161,3 +161,51 @@ class ColaConsultaDepartamento(TemplateView):
 			pass
 		context['paciente'] = Expediente.objects.get(pk=self.kwargs["pk"])
 		return context
+
+# -------------------- CONSULTA MEDICA ------------------- #
+
+class ConsultaMedicaList(ListView):
+	template_name = 'consultas/consulta_medica_list.html'
+
+	def get_queryset(self):
+		user = self.request.user
+		if user.clinica:
+			queryset = ConsultaMedica.objects.filter(clinica=user.clinica.id)
+			pass
+		else:
+			queryset = ConsultaMedica.objects.all()
+			pass
+		return queryset
+
+class ConsultaMedicaCreate(SuccessMessageMixin, CreateView):
+	model = ConsultaMedica
+	form_class = ConsultaMedicaForm
+	template_name = 'consultas/consulta_medica_form.html'
+	success_url = reverse_lazy('consultas:cola_consulta_list')
+	success_message = 'Consulta médica registrada correctamente'
+
+	def get_initial(self):
+		user = self.request.user
+		diccionario = {
+			'expediente':Expediente.objects.get(pk=self.kwargs["pk"]),
+			'usuario':Usuario.objects.get(pk=user.id),
+		}
+		return diccionario
+
+class ConsultaMedicaUpdate(SuccessMessageMixin, UpdateView):
+	model = ConsultaMedica
+	form_class = ConsultaMedicaForm
+	template_name = 'consultas/consulta_medica_form.html'
+	success_url = reverse_lazy('consultas:cola_consulta_list')
+	success_message = 'Registro editado correctamente'
+
+class ConsultaMedicaDelete(SuccessMessageMixin, DeleteView):
+	model = ConsultaMedica
+	template_name = 'consultas/consulta_medica_delete.html'
+	success_url = reverse_lazy('consultas:cola_consulta_list')
+	success_message = 'Consulta médica eliminada correctamente'
+
+	def delete(self, request, *args, **kwargs):
+		obj = self.get_object()
+		messages.success(self.request, self.success_message % obj.__dict__)
+		return super(ConsultaMedicaDelete, self).delete(request, *args, **kwargs)

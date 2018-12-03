@@ -89,7 +89,7 @@ class ExamenSangreForm(forms.ModelForm):
 				}),
 			'rbc':forms.NumberInput(attrs={
 				'class':'form-control',
-				'placeholder':'NBC',
+				'placeholder':'RBC',
 				}),
 			'hemoglobina':forms.NumberInput(attrs={
 				'class':'form-control',

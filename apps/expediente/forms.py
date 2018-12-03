@@ -112,7 +112,7 @@ class ExpedienteForm(forms.ModelForm):
 				'class':'form-control',
 				'placeholder':'Dirección',
 				}),
-			'dui':forms.TextInput(attrs={
+			'DUI':forms.TextInput(attrs={
 				'class':'form-control',
 				'placeholder':'DUI',
 				}),

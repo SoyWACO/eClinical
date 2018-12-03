@@ -19,8 +19,14 @@ class SignoVitalCreate(SuccessMessageMixin, CreateView):
 	model = SignoVital
 	form_class = SignoVitalForm
 	template_name = 'expediente/signo_vital_form.html'
-	success_url = reverse_lazy('expediente:signo_vital_list')
+	success_url = reverse_lazy('consultas:cola_enfermeria_list')
 	success_message = 'Signos vitales registrados correctamente'
+
+	def get_initial(self):
+		diccionario = {
+			'expediente':Expediente.objects.get(pk=self.kwargs["pk"]),
+		}
+		return diccionario
 
 class SignoVitalUpdate(SuccessMessageMixin, UpdateView):
 	model = SignoVital
@@ -87,4 +93,5 @@ class ExpedienteView(TemplateView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['expediente'] = Expediente.objects.get(pk=kwargs['pk'])
+        context['signos_vitales'] = SignoVital.objects.filter(expediente=kwargs['pk']).last()
         return context

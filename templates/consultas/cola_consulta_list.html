@@ -16,7 +16,6 @@
 {% block breadcrumb %}
 <ol class="breadcrumb">
   <li><i class="fa fa-stethoscope"></i> &nbsp; Consultas Médicas</li>
-  <li class="active">Cola de Consultas Médicas</li>
 </ol>
 {% endblock %}
 
@@ -67,11 +66,11 @@
               <td>{{ cola.expediente.id }}</td>
               <td><a href="{% url 'expediente:expediente_view' cola.expediente.id %}">{{ cola.expediente.nombre }} {{ cola.expediente.apellido }}</a></td>
               <td style="width: 250px">
-                <a href="{% url 'consultas:cola_enfermeria_create' cola.expediente.id %}">
+                <a href="{% url 'consultas:consulta_medica_create' cola.expediente.id %}">
                   <i class="fa fa-stethoscope" style="color: #3c8dbc;"></i>&nbsp; Registrar Consulta
                 </a>
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <a href="{% url 'expediente:expediente_delete' cola.expediente.id %}">
+                <a href="{% url 'consultas:cola_consulta_delete' cola.id %}">
                   <i class="fa fa-trash" style="color: #df0024;"></i>&nbsp; Eliminar
                 </a>
               </td>

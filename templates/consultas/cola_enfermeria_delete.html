@@ -1,0 +1,42 @@
+{% extends 'base/general.html' %}
+
+{% block title %}Consultas Médicas{% endblock %}
+
+{% block header %}Consultas Médicas{% endblock %}
+
+{% block breadcrumb %}
+<ol class="breadcrumb">
+  <li><a href="{% url 'consultas:cola_consulta_list' %}"><i class="fa fa-stethoscope"></i> &nbsp; Consultas Médicas</a></li>
+  <li class="active">Eliminar de la Cola de Consultas Médicas</li>
+</ol>
+{% endblock %}
+
+{% block content %}
+<div class="row">
+  <div class="col-xs-12">
+    <!-- Box Primary -->
+    <div class="box box-primary">
+      <div class="box-header">
+        <h3 class="box-title">Eliminar de la Cola de Consultas Médicas</h3>
+      </div>
+      <!-- /.box-header -->
+      <div class="box-body">
+        <div class="row">
+          <div class="col-sm-8 col-sm-offset-2">
+            <form method="post" autocomplete="off">
+              {% csrf_token %}
+              <h3>¿Desea eliminar el expediente de la cola de consultas médicas?</h3>
+              <p>¿Realmente desea eliminar el expediente de {{ object.expediente.nombre }} {{ object.expediente.nombre }} de la cola de consultas médicas?</p>
+              <br>
+              <button type="submit" class="btn btn-flat btn-danger">Sí, deseo eliminar</button> &nbsp;&nbsp;
+              <a href="{% url 'consultas:cola_consulta_list' %}" class="btn btn-flat btn-default">No, volver atrás</a>
+            </form>	
+          </div>
+        </div>
+      </div>
+      <!-- /.box-body -->
+    </div>
+    <!-- /.box -->
+  </div>
+</div>
+{% endblock %}

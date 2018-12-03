@@ -1,6 +1,6 @@
 # -*- encoding:utf8 -*-
 from django import forms
-from apps.consultas.models import ColaEnfermeria, ColaConsulta
+from apps.consultas.models import ColaEnfermeria, ColaConsulta, ConsultaMedica
 from apps.usuarios.models import Usuario
 from apps.clinicas.models import Departamento
 
@@ -76,6 +76,52 @@ class ColaConsultaForm(forms.ModelForm):
 				'class':'form-control',
 				'placeholder':'Médico',
 				'required':'true',
+				}),
+			'expediente':forms.HiddenInput(),
+		}
+
+# -------------------- CONSULTA MEDICA ------------------- #
+
+class ConsultaMedicaForm(forms.ModelForm):
+
+	class Meta:
+		model = ConsultaMedica
+		fields = [
+			'expediente',
+			'usuario',
+			'sintomatologia',
+			'diagnostico',
+			'tratamiento',
+			'medicamentos',
+		]
+		labels = {
+			'expediente':'Paciente',
+			'usuario':'Médico',
+			'sintomatologia':'Sintomatología',
+			'diagnostico':'Diagnóstico',
+			'tratamiento':'Tratamiento',
+			'medicamentos':'Medicamentos',
+		}
+		widgets = {
+			'usuario':forms.Select(attrs={
+				'class':'form-control',
+				'placeholder':'Médico',
+				}),
+			'sintomatologia':forms.Textarea(attrs={
+				'class':'form-control',
+				'placeholder':'Sintomatología',
+				}),
+			'diagnostico':forms.Textarea(attrs={
+				'class':'form-control',
+				'placeholder':'Diagnóstico',
+				}),
+			'tratamiento':forms.Textarea(attrs={
+				'class':'form-control',
+				'placeholder':'Tratamiento',
+				}),
+			'medicamentos':forms.Textarea(attrs={
+				'class':'form-control',
+				'placeholder':'Medicamentos',
 				}),
 			'expediente':forms.HiddenInput(),
 		}

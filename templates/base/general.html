@@ -66,6 +66,12 @@
 
       <div class="navbar-custom-menu">
         <ul class="nav navbar-nav">
+          <!-- Clinica -->
+          <li class="dropdown user user-menu">
+            <a href="#" class="dropdown-toggle">
+              <span class="hidden-xs">{{ user.clinica.nombre }}</span>
+            </a>
+          </li>
           <!-- User Account: style can be found in dropdown.less -->
           <li class="dropdown user user-menu">
             <a href="" class="dropdown-toggle" data-toggle="dropdown">
@@ -148,15 +154,9 @@
             <i class="fa fa-stethoscope"></i> <span>Consultas Médicas</span>
           </a>
         </li>
-        <li>
-          <a href="{% url 'examenes:prueba_especial_list' %}">
-            <i class="fa fa-flask"></i> <span>Laboratorios</span>
-          </a>
-        </li>
-
          <li class="treeview">
           <a href="">
-            <i class="fa fa-plus-circle"></i> <span>Laboratorios</span>
+            <i class="fa fa-flask"></i> <span>Laboratorios</span>
             <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
             </span>
