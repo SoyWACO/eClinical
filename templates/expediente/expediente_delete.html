@@ -1,14 +1,13 @@
 {% extends 'base/general.html' %}
 
-{% block title %}Expediente{% endblock %}
+{% block title %}Archivo{% endblock %}
 
-{% block header %}Eliminar{% endblock %}
+{% block header %}Archivo{% endblock %}
 
 {% block breadcrumb %}
 <ol class="breadcrumb">
-  <li><i class="fa fa-plus-circle"></i> &nbsp; Expediente</li>
-  <li><a href="{% url 'clinicas:clinica_list' %}">Gestión de Expediente</a></li>
-  <li class="active">Eliminar</li>
+  <li><a href="{% url 'expediente:expediente_list' %}"><i class="fa fa-archive"></i> &nbsp; Archivo</a></li>
+  <li class="active">Eliminar Expediente Clínico</li>
 </ol>
 {% endblock %}
 
@@ -18,7 +17,7 @@
     <!-- Box Primary -->
     <div class="box box-primary">
       <div class="box-header">
-        <h3 class="box-title">Expediente</h3>
+        <h3 class="box-title">Eliminar Expediente Clínico</h3>
       </div>
       <!-- /.box-header -->
       <div class="box-body">
@@ -26,11 +25,11 @@
           <div class="col-sm-8 col-sm-offset-2">
             <form method="post" autocomplete="off">
               {% csrf_token %}
-              <h3>¿Desea eliminar la expediente?</h3>
-              <p>¿Realmente desea eliminar la expediente {{ object.nombre }}?</p>
+              <h3>¿Desea eliminar el expediente clínico?</h3>
+              <p>¿Realmente desea eliminar la expediente de {{ object.nombre }} {{ object.apellido }}?</p>
               <br>
               <button type="submit" class="btn btn-flat btn-danger">Sí, deseo eliminar</button> &nbsp;&nbsp;
-              <a href="{% url 'clinicas:clinica_list' %}" class="btn btn-flat btn-default">No, volver atrás</a>
+              <a href="{% url 'expediente:expediente_list' %}" class="btn btn-flat btn-default">No, volver atrás</a>
             </form>	
           </div>
         </div>

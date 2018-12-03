@@ -11,4 +11,4 @@ class Usuario(AbstractUser, models.Model):
 	departamentos = models.ManyToManyField(Departamento, blank=True)
 
 	def __str__(self):
-		return self.username
+		return self.first_name + " " + self.last_name

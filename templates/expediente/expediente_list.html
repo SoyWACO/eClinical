@@ -1,19 +1,19 @@
 {% extends 'base/general.html' %}
+
 {% load staticfiles %}
 
-{% block title %}Clínicas{% endblock %}
+{% block title %}Archivo{% endblock %}
 
 {% block styles %}
 <!-- DataTables -->
 <link rel="stylesheet" href="{% static 'css/dataTables.bootstrap.min.css' %}">
 {% endblock %}
 
-{% block header %}Gestión de Expediente{% endblock %}
+{% block header %}Archivo{% endblock %}
 
 {% block breadcrumb %}
 <ol class="breadcrumb">
-  <li><i class="fa fa-plus-circle"></i> &nbsp; Expediente</li>
-  <li class="active">Gestión de Expediente</li>
+  <li><i class="fa fa-archive"></i> &nbsp; Archivo</li>
 </ol>
 {% endblock %}
 
@@ -35,7 +35,7 @@
         <div class="pull-right">
           <a href="{% url 'expediente:expediente_create' %}" class="btn btn-flat btn-primary"><i class="fa fa-plus"></i> &nbsp; Agregar Expediente</a>
         </div>
-        <h3 class="box-title">Expediente</h3>
+        <h3 class="box-title">Expedientes Clínicos</h3>
       </div>
       <!-- /.box-header -->
       <div class="box-body">

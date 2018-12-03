@@ -1,0 +1,67 @@
+{% extends 'base/general.html' %}
+
+{% load staticfiles %}
+
+{% block title %}Enfermería{% endblock %}
+
+{% block styles %}
+<!-- DataTables -->
+<link rel="stylesheet" href="{% static 'css/dataTables.bootstrap.min.css' %}">
+{% endblock %}
+
+{% block header %}Enfermería{% endblock %}
+
+{% block breadcrumb %}
+<ol class="breadcrumb">
+  <li><a href="{% url 'consultas:cola_enfermeria_list' %}"><i class="fa fa-heartbeat"></i> &nbsp; Enfermería</a></li>
+  <li class="active"> &nbsp; Seleccionar Departamento</li>
+</ol>
+{% endblock %}
+
+{% block content %}
+<div class="row">
+  <div class="col-xs-12">
+    {% if messages %}
+    {% for message in messages %}
+    <p class="alert alert-dismissable {% if message.tags %}alert-{{ message.tags }}"{% endif %}>
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <i class="fa fa-check-circle"></i> &nbsp;&nbsp; {{ message }}
+    </p>
+    {% endfor %}
+    {% endif %}
+
+    <!-- Box Primary -->
+    <div class="box box-primary">
+      <div class="box-header">
+        <h3 class="box-title">Seleccionar Departamento</h3>
+      </div>
+      <!-- /.box-header -->
+      <div class="box-body">
+        <table id="tabla" class="table table-bordered table-striped">
+          <thead>
+            <tr>
+              <th>Departamento</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for departamento in departamentos %}
+            <tr>
+              <td><a href="{% url 'consultas:cola_consulta_create' paciente.id departamento.id %}">{{ departamento.nombre }}</a></td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+      <!-- /.box-body -->
+    </div>
+    <!-- /.box -->
+  </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<!-- DataTables -->
+<script src="{% static 'js/jquery.dataTables.js' %}"></script>
+<script src="{% static 'js/dataTables.bootstrap.min.js' %}"></script>
+<script src="{% static 'js/tabla.js' %}"></script>
+{% endblock %}

@@ -1,13 +1,14 @@
 {% extends 'base/general.html' %}
 
-{% block title %}Archivo{% endblock %}
+{% block title %}Enfermería{% endblock %}
 
-{% block header %}Archivo{% endblock %}
+{% block header %}Enfermería{% endblock %}
 
 {% block breadcrumb %}
 <ol class="breadcrumb">
-  <li><a href="{% url 'expediente:expediente_list' %}"><i class="fa fa-archive"></i> &nbsp; Archivo</a></li>
-  <li class="active">Registro de Expediente Clínico</li>
+  <li><a href="{% url 'consultas:cola_enfermeria_list' %}"><i class="fa fa-heartbeat"></i> &nbsp; Enfermería</a></li>
+  <li><a href="{% url 'consultas:cola_consulta_departamento' paciente %}"> &nbsp; Seleccionar Departamento</a></li>
+  <li class="active">Enviar a Consulta Médica</li>
 </ol>
 {% endblock %}
 
@@ -26,7 +27,7 @@
     <!-- Box Primary -->
     <div class="box box-primary">
       <div class="box-header">
-        <h3 class="box-title">Registro de Expediente Clínico</h3>
+        <h3 class="box-title">Enviar a Consulta Médica</h3>
       </div>
       <!-- /.box-header -->
       <div class="box-body">
