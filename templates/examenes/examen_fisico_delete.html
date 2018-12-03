@@ -7,7 +7,7 @@
 {% block breadcrumb %}
 <ol class="breadcrumb">
   <li><i class="fa fa-plus-circle"></i> &nbsp; Examenes</li>
-  <li><a href="{% url 'examenes:examen_orina_list' %}">Gestión de Examenes</a></li>
+  <li><a href="{% url 'examenes:examen_fisico_list' %}">Gestión de Examenes</a></li>
   <li class="active">Eliminar</li>
 </ol>
 {% endblock %}
@@ -26,12 +26,12 @@
           <div class="col-sm-8 col-sm-offset-2">
             <form method="post" autocomplete="off">
               {% csrf_token %}
-              <h3>¿Desea eliminar la examen?</h3>
-              <p>¿Realmente desea eliminar el examen?</p>
+              <h3>¿Desea eliminar el examen?</h3>
+              <p>¿Realmente desea eliminar el examen físico?</p>
               <br>
               <button type="submit" class="btn btn-flat btn-danger">Sí, deseo eliminar</button> &nbsp;&nbsp;
-              <a href="{% url 'examenes:examen_heces_list' %}" class="btn btn-flat btn-default">No, volver atrás</a>
-            </form>	
+              <a href="{% url 'examenes:examen_fisico_list' %}" class="btn btn-flat btn-default">No, volver atrás</a>
+            </form> 
           </div>
         </div>
       </div>

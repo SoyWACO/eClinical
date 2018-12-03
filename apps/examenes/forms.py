@@ -1,5 +1,5 @@
 from django import forms
-from apps.examenes.models import PruebaEspecial, ExamenSangre, ExamenOrina, ExamenHeces
+from apps.examenes.models import PruebaEspecial, ExamenSangre, ExamenOrina, ExamenHeces, ExamenFisico
 
 # -------------------- PRUEBA ESPECIAL ------------------- #
 
@@ -377,7 +377,49 @@ class ExamenHecesForm(forms.ModelForm):
 				'class':'form-control',
 				'placeholder':'Metazoarios',
 				}),
-			'observaciones':forms.TextInput(attrs={
+			'observaciones':forms.Textarea(attrs={
+				'class':'form-control',
+				'placeholder':'Observaciones',
+				}),
+		}
+
+# --------------------- EXAMEN FISICO -------------------- #
+
+class ExamenFisicoForm(forms.ModelForm):
+
+	class Meta:
+		model = ExamenFisico
+		fields = [
+			'expediente',
+			'usuario',
+			'tipo',
+			'imagen',
+			'observaciones',
+		]
+		labels = {
+			'expediente':'Expediente',
+			'usuario':'Usuario',
+			'tipo':'Tipo de examen',
+			'imagen':'Imagen',
+			'observaciones':'Observaciones',
+		}
+		widgets = {
+			'expediente':forms.Select(attrs={
+				'class':'form-control',
+				'placeholder':'Paciente',
+				}),
+			'usuario':forms.Select(attrs={
+				'class':'form-control',
+				'placeholder':'Médico',
+				}),
+			'tipo':forms.TextInput(attrs={
+				'class':'form-control',
+				'placeholder':'Tipo de examen',
+				}),
+			'imagen':forms.FileInput(attrs={
+				'class':'form-control',
+				}),
+			'observaciones':forms.Textarea(attrs={
 				'class':'form-control',
 				'placeholder':'Observaciones',
 				}),

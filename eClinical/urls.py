@@ -16,6 +16,8 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from django.views.generic.base import TemplateView
+from django.conf.urls import url
+from django.conf import settings
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -26,4 +28,10 @@ urlpatterns = [
     path('expediente/', include('apps.expediente.urls', namespace='expediente')),
     path('examenes/', include('apps.examenes.urls', namespace='examenes')),
     path('consultas/', include('apps.consultas.urls', namespace='consultas')),
+    #url(r'^static/(?P<path>.*)$', include('django.views.static.serve', {
+    #    'document_root': settings.STATIC_ROOT
+    #})),
+    #url(r'^media/(?P<path>.*)$', include('django.views.static.serve', {
+    #    'document_root': settings.MEDIA_ROOT
+    #})),
 ]

@@ -82,3 +82,13 @@ class ExamenHeces(models.Model):
 	metazoarios = models.CharField(max_length=1, choices=ESTADO_CHOICES, null=True, blank=True)
 	observaciones = models.TextField(null=True, blank=True)
 	fecha_hora = models.DateTimeField(auto_now_add=True, blank=True)
+
+# --------------------- EXAMEN FISICO -------------------- #
+
+class ExamenFisico(models.Model):
+	expediente = models.ForeignKey(Expediente, blank=True, on_delete=models.CASCADE) # Paciente
+	usuario = models.ForeignKey(Usuario, null=True, blank=True, on_delete=models.SET_NULL) # Médico
+	tipo = models.CharField(max_length=100, null=True, blank=True)
+	imagen  = models.ImageField(upload_to='examenes')
+	observaciones = models.TextField(null=True, blank=True)
+	fecha_hora = models.DateTimeField(auto_now_add=True, blank=True)

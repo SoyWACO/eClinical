@@ -2,10 +2,8 @@ from django.urls import path
 from apps.examenes.views import PruebaEspecialList, PruebaEspecialCreate, PruebaEspecialUpdate, PruebaEspecialDelete,\
        ExamenSangreList, ExamenSangreCreate, ExamenSangreUpdate, ExamenSangreDelete,\
        ExamenOrinaList, ExamenOrinaCreate, ExamenOrinaUpdate, ExamenOrinaDelete,\
-       ExamenHecesList, ExamenHecesCreate, ExamenHecesUpdate, ExamenHecesDelete
-
-
-
+       ExamenHecesList, ExamenHecesCreate, ExamenHecesUpdate, ExamenHecesDelete, \
+       ExamenFisicoList, ExamenFisicoCreate, ExamenFisicoUpdate, ExamenFisicoDelete
 
 app_name = 'examenes'
 
@@ -34,4 +32,9 @@ urlpatterns = [
 	path('examen_heces/<pk>/change/', ExamenHecesUpdate.as_view(), name='examen_heces_update'),
 	path('examen_heces/<pk>/delete/',ExamenHecesDelete.as_view(), name='examen_heces_delete'),
 
+	#examen fisico
+    path('examen_fisico/', ExamenFisicoList.as_view(), name='examen_fisico_list'),
+	path('examen_fisico/add/', ExamenFisicoCreate.as_view(), name='examen_fisico_create'),
+	path('examen_fisico/<pk>/change/', ExamenFisicoUpdate.as_view(), name='examen_fisico_update'),
+	path('examen_fisico/<pk>/delete/',ExamenFisicoDelete.as_view(), name='examen_fisico_delete'),
 ]

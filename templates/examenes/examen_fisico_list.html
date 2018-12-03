@@ -4,19 +4,19 @@
 
 {% load tz %}
 
-{% block title %}Examenes de heces{% endblock %}
+{% block title %}Examenes Fisicos{% endblock %}
 
 {% block styles %}
 <!-- DataTables -->
 <link rel="stylesheet" href="{% static 'css/dataTables.bootstrap.min.css' %}">
 {% endblock %}
 
-{% block header %}Gestión de Examenes de heces{% endblock %}
+{% block header %}Gestión de Examenes Fisicos{% endblock %}
 
 {% block breadcrumb %}
 <ol class="breadcrumb">
-  <li><i class="fa fa-plus-circle"></i> &nbsp;  Examen Heces</li>
-  <li class="active">  Examen heces</li>
+  <li><i class="fa fa-plus-circle"></i> &nbsp;  Examen Fisico</li>
+  <li class="active">  Examen fisico</li>
 </ol>
 {% endblock %}
 
@@ -36,9 +36,9 @@
     <div class="box box-primary">
       <div class="box-header">
         <div class="pull-right">
-          <a href="{% url 'examenes:examen_heces_create' %}" class="btn btn-flat btn-primary"><i class="fa fa-plus"></i> &nbsp; Agregar examen de heces</a>
+          <a href="{% url 'examenes:examen_fisico_create' %}" class="btn btn-flat btn-primary"><i class="fa fa-plus"></i> &nbsp; Agregar examen fisico</a>
         </div>
-        <h3 class="box-title">Examenes de heces</h3>
+        <h3 class="box-title">Examenes de fisico</h3>
       </div>
       <!-- /.box-header -->
       <div class="box-body">
@@ -52,19 +52,19 @@
             </tr>
           </thead>
           <tbody>
-            {% for examen_heces in object_list %}
+            {% for examen_fisico in object_list %}
             <tr>
-              <td>{{ examen_heces.expediente.id }}</td>
-              <td>{{ examen_heces.expediente.nombre }} {{ examen_heces.expediente.apellido }}</td>
+              <td>{{ examen_fisico.expediente.id }}</td>
+              <td>{{ examen_fisico.expediente.nombre }} {{ examen_fisico.expediente.apellido }}</td>
               {% timezone "America/El_Salvador" %}
-              <td>{{ examen_heces.fecha_hora }}</td>
+              <td>{{ examen_fisico.fecha_hora }}</td>
               {% endtimezone %}
               <td style="width: 200px;">
-                <a href="{% url 'examenes:examen_heces_update' examen_heces.id %}">
+                <a href="{% url 'examenes:examen_fisico_update' examen_fisico.id %}">
                   <i class="fa fa-pencil" style="color: #ffbc07;"></i>&nbsp; Editar
                 </a>
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <a href="{% url 'examenes:examen_heces_delete' examen_heces.id %}">
+                <a href="{% url 'examenes:examen_fisico_delete' examen_fisico.id %}">
                   <i class="fa fa-trash" style="color: #df0024;"></i>&nbsp; Eliminar
                 </a>
               </td>

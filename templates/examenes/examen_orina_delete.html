@@ -27,7 +27,7 @@
             <form method="post" autocomplete="off">
               {% csrf_token %}
               <h3>¿Desea eliminar la examen?</h3>
-              <p>¿Realmente desea eliminar la clínica {{ object.cod }}?</p>
+              <p>¿Realmente desea eliminar el examen?</p>
               <br>
               <button type="submit" class="btn btn-flat btn-danger">Sí, deseo eliminar</button> &nbsp;&nbsp;
               <a href="{% url 'examenes:examen_orina_list' %}" class="btn btn-flat btn-default">No, volver atrás</a>

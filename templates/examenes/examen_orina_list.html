@@ -1,5 +1,8 @@
 {% extends 'base/general.html' %}
+
 {% load staticfiles %}
+
+{% load tz %}
 
 {% block title %}Examenes de orina{% endblock %}
 
@@ -42,29 +45,20 @@
         <table id="tabla" class="table table-bordered table-striped">
           <thead>
             <tr>
-              <th>Codigo</th>
-              <th>Aspecto</th>
-              <th>Color</th>
-              <th>PH</th>
-              <th>Nitritos</th>
-              <th>Proteinas</th>
-              <th>Glucosa</th>
-              <th>Cuerpo cetonico</th>
-              <th>Bilirubina</th>
-              <th>sangre oculta</th>
-              <th>leucocitos</th>
-              <th>hematies</th>
-              <th>Celulas epitelalias</th>
-              <th>cilindros</th>
-              <th>parasitos</th>
-              <th>otros</th>
-              <th>cristales</th>
+              <th>No. Expediente</th>
+              <th>Nombre</th>
+              <th>Fecha y hora</th>
+              <th>Opciones</th>
             </tr>
           </thead>
           <tbody>
             {% for examen_orina in object_list %}
             <tr>
-              <td>{{ examen_orina.cod }}</td>
+              <td>{{ examen_orina.expediente.id }}</td>
+              <td>{{ examen_orina.expediente.nombre }} {{ examen_orina.expediente.apellido }}</td>
+              {% timezone "America/El_Salvador" %}
+              <td>{{ examen_orina.fecha_hora }}</td>
+              {% endtimezone %}
               <td style="width: 200px;">
                 <a href="{% url 'examenes:examen_orina_update' examen_orina.id %}">
                   <i class="fa fa-pencil" style="color: #ffbc07;"></i>&nbsp; Editar

@@ -1,5 +1,8 @@
 {% extends 'base/general.html' %}
+
 {% load staticfiles %}
+
+{% load tz %}
 
 {% block title %}Examenes de pruebas especiales{% endblock %}
 
@@ -42,16 +45,20 @@
         <table id="tabla" class="table table-bordered table-striped">
           <thead>
             <tr>
-              <th>Codigo</th>
-              <th>Tipo</th>
-              <th>Descripcion</th>
-              
+              <th>No. Expediente</th>
+              <th>Nombre</th>
+              <th>Fecha y hora</th>
+              <th>Opciones</th>
             </tr>
           </thead>
           <tbody>
             {% for prueba_especial in object_list %}
             <tr>
-              <td>{{ prueba_especial.codigo }}</td>
+              <td>{{ prueba_especial.expediente.id }}</td>
+              <td>{{ prueba_especial.expediente.nombre }} {{ prueba_especial.expediente.apellido }}</td>
+              {% timezone "America/El_Salvador" %}
+              <td>{{ prueba_especial.fecha_hora }}</td>
+              {% endtimezone %}
               <td style="width: 200px;">
                 <a href="{% url 'examenes:prueba_especial_update' prueba_especial.id %}">
                   <i class="fa fa-pencil" style="color: #ffbc07;"></i>&nbsp; Editar

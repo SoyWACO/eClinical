@@ -35,7 +35,7 @@ class ColaConsulta(models.Model):
 # ------------------- CONSULTAS MÉDICAS ------------------ #
 
 class ConsultaMedica(models.Model):
-	expediente = models.ForeignKey(Expediente, on_delete=models.CASCADE) # Paciente
+	expediente = models.ForeignKey(Expediente, blank=True, on_delete=models.CASCADE) # Paciente
 	usuario = models.ForeignKey(Usuario, null=True, blank=True, on_delete=models.SET_NULL) # Médico
 	sintomatologia = models.TextField(null=True, blank=True)
 	diagnostico = models.TextField(null=True, blank=True)

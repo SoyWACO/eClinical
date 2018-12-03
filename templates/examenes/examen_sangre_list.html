@@ -1,5 +1,8 @@
 {% extends 'base/general.html' %}
+
 {% load staticfiles %}
+
+{% load tz %}
 
 {% block title %}Examenes de pruebas especiales{% endblock %}
 
@@ -42,27 +45,20 @@
         <table id="tabla" class="table table-bordered table-striped">
           <thead>
             <tr>
-              <th>Codigo</th>
-              <th>Hemoglobina</th>
-              <th>Hamatocrito</th>
-              <th>MVC</th>
-              <th>MCH</th>
-              <th>MCHC</th>
-              <th>Plaquetas</th>
-              <th>MPV</th>
-              <th>PDW</th>
-              <th>Leucocitos</th>
-              <th>Neutrofilos</th>
-              <th>Linfocitos</th>
-              <th>monocitos</th>
-              <th>eucinofilos</th>
-              <th>basofilos</th>
-              
+              <th>No. Expediente</th>
+              <th>Nombre</th>
+              <th>Fecha y hora</th>
+              <th>Opciones</th>
             </tr>
           </thead>
           <tbody>
             {% for examen_sangre in object_list %}
             <tr>
+              <td>{{ examen_sangre.expediente.id }}</td>
+              <td>{{ examen_sangre.expediente.nombre }} {{ examen_sangre.expediente.apellido }}</td>
+              {% timezone "America/El_Salvador" %}
+              <td>{{ examen_sangre.fecha_hora }}</td>
+              {% endtimezone %}
               <td>{{ examen_sangre.cod }}</td>
               <td style="width: 200px;">
                 <a href="{% url 'examenes:examen_sangre_update' examen_sangre.id %}">
